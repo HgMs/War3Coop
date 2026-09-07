@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://war3coop.local/schemas/wc3-inspect-report-v1.json",
+  "title": "wc3-inspect report",
+  "type": "object",
+  "required": ["schema_version", "kind", "warnings"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "input-detection",
+        "game-version",
+        "archive",
+        "archive-extraction",
+        "map",
+        "game-map",
+        "campaign",
+        "error"
+      ]
+    },
+    "source": { "type": "object" },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}
+

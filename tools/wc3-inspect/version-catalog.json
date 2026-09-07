@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "versions": [
+    {
+      "label": "1.20e",
+      "build": "1.20.4.6074",
+      "game_dll_sha256": "6B5B406861A56449C604C15CF0971DF7D6D26F679EFF7AA69A34946C7D91764B"
+    }
+  ]
+}
+

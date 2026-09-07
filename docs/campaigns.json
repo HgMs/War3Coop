@@ -1,0 +1,630 @@
+[
+  {
+    "directory": "00-兽族序章-兽族大逃亡",
+    "game": "魔兽争霸 III：混乱之治（完整序章另见冰封王座官方自定义战役）",
+    "faction": "兽族序章",
+    "titleZh": "兽族大逃亡",
+    "titleEn": "Exodus of the Horde",
+    "summary": "萨尔在先知指引下集结族人、离开洛丹伦，并在海岛上帮助暗矛部族摆脱人类与海巫的威胁。",
+    "sourceLabel": "Warcraft Wiki - Exodus of the Horde",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Exodus_of_the_Horde",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-追寻幻象-chasing-visions",
+        "titleZh": "追寻幻象",
+        "titleEn": "Chasing Visions",
+        "type": "教程关卡",
+        "summary": "萨尔遵循梦中先知的召唤穿过荒野，在基础移动与战斗训练后与先知会面。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-启程-departures",
+        "titleZh": "启程",
+        "titleEn": "Departures",
+        "type": "教程关卡",
+        "summary": "萨尔营救被关押的兽人、集结部落力量并突破人类封锁，为横渡大海做准备。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-风暴骑士-riders-on-the-storm",
+        "titleZh": "风暴骑士",
+        "titleEn": "Riders on the Storm",
+        "type": "标准关卡",
+        "summary": "风暴迫使兽族舰队停靠陌生海岛，萨尔与暗矛巨魔接触并对抗岛上的人类势力。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-地底的火焰-the-fires-down-below",
+        "titleZh": "地底的火焰",
+        "titleEn": "The Fires Down Below",
+        "type": "标准关卡",
+        "summary": "萨尔深入地下囚牢营救被俘同伴，在鱼人盘踞的洞穴中寻找逃生路线。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-灭绝倒计时-countdown-to-extinction",
+        "titleZh": "灭绝倒计时",
+        "titleEn": "Countdown to Extinction",
+        "type": "标准关卡",
+        "summary": "部落坚守海岛营地，抵挡海巫及其军势的连续进攻，等待船队完成修复。"
+      }
+    ]
+  },
+  {
+    "directory": "01-人族战役-洛丹伦大陆的灾难",
+    "game": "魔兽争霸 III：混乱之治",
+    "faction": "人族",
+    "titleZh": "洛丹伦大陆的灾难",
+    "titleEn": "The Scourge of Lordaeron",
+    "summary": "阿尔萨斯王子从保卫洛丹伦开始追查瘟疫，最终为复仇远征诺森德并取得霜之哀伤。",
+    "sourceLabel": "Warcraft Wiki - The Scourge of Lordaeron",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Scourge_of_Lordaeron",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-斯坦恩布莱德保卫战-the-defense-of-strahnbrad",
+        "titleZh": "斯坦恩布莱德保卫战",
+        "titleEn": "The Defense of Strahnbrad",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯与乌瑟尔赶赴斯坦恩布莱德，营救村民并击退袭击当地的黑石兽人。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-黑石氏族-blackrock-and-roll",
+        "titleZh": "黑石氏族",
+        "titleEn": "Blackrock and Roll",
+        "type": "标准关卡",
+        "summary": "人族军队建立基地并摧毁黑石氏族营地，阻止兽人以牺牲仪式召唤恶魔。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-肆虐的瘟疫-ravages-of-the-plague",
+        "titleZh": "肆虐的瘟疫",
+        "titleEn": "Ravages of the Plague",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯与吉安娜调查北方村庄的异常，发现受污染谷物和正在蔓延的亡灵瘟疫。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-诅咒教派-the-cult-of-the-damned",
+        "titleZh": "诅咒教派",
+        "titleEn": "The Cult of the Damned",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯追击克尔苏加德与诅咒教派，试图查明瘟疫幕后主使及受污染谷物的去向。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-逼近的灾难-march-of-the-scourge",
+        "titleZh": "逼近的灾难",
+        "titleEn": "March of the Scourge",
+        "type": "防守关卡",
+        "summary": "阿尔萨斯与吉安娜坚守壁炉谷，在救援抵达前抵挡亡灵天灾的持续围攻。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-抉择-the-culling",
+        "titleZh": "抉择",
+        "titleEn": "The Culling",
+        "type": "标准关卡",
+        "summary": "斯坦索姆居民已食用受污染谷物，阿尔萨斯决定赶在玛尔加尼斯之前净化整座城市。"
+      },
+      {
+        "number": "第07章",
+        "directory": "07-诺森德海岸-the-shores-of-northrend",
+        "titleZh": "诺森德海岸",
+        "titleEn": "The Shores of Northrend",
+        "type": "标准关卡",
+        "summary": "远征军登陆诺森德并建立营地，阿尔萨斯与穆拉丁重逢后共同对抗亡灵。"
+      },
+      {
+        "number": "第08章",
+        "directory": "08-分歧-dissension",
+        "titleZh": "分歧",
+        "titleEn": "Dissension",
+        "type": "限时关卡",
+        "summary": "为阻止奉命返航的军队离开，阿尔萨斯秘密雇佣佣兵，在限时内摧毁远征军船只。"
+      },
+      {
+        "number": "第09章",
+        "directory": "09-霜之哀伤-frostmourne",
+        "titleZh": "霜之哀伤",
+        "titleEn": "Frostmourne",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯寻找并取得被诅咒的霜之哀伤，随后率军摧毁玛尔加尼斯的基地。"
+      }
+    ]
+  },
+  {
+    "directory": "02-不死族战役-诅咒之路",
+    "game": "魔兽争霸 III：混乱之治",
+    "faction": "不死族",
+    "titleZh": "诅咒之路",
+    "titleEn": "Path of the Damned",
+    "summary": "成为死亡骑士的阿尔萨斯重建克尔苏加德、毁灭奎尔萨拉斯，并召唤阿克蒙德降临。",
+    "sourceLabel": "Warcraft Wiki - Path of the Damned",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Path_of_the_Damned",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-灰烬中的跋涉-trudging-through-the-ashes",
+        "titleZh": "灰烬中的跋涉",
+        "titleEn": "Trudging through the Ashes",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯秘密进入洛丹伦城镇，寻找伪装在人群中的诅咒教派侍僧。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-掘尸还魂-digging-up-the-dead",
+        "titleZh": "掘尸还魂",
+        "titleEn": "Digging up the Dead",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯夺回克尔苏加德遗骸与运送骨灰所需的圣骑士骨灰瓮，并与乌瑟尔决战。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-进入永恒之境-into-the-realm-eternal",
+        "titleZh": "进入永恒之境",
+        "titleEn": "Into the Realm Eternal",
+        "type": "标准关卡",
+        "summary": "亡灵军团向奎尔萨拉斯推进，突破高等精灵外围防线并开启通往内地的道路。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-三合月匙-key-of-the-three-moons",
+        "titleZh": "三合月匙",
+        "titleEn": "Key of the Three Moons",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯攻取三块月亮钥匙碎片，以开启保护银月城的魔法大门。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-银月城的陷落-the-fall-of-silvermoon",
+        "titleZh": "银月城的陷落",
+        "titleEn": "The Fall of Silvermoon",
+        "type": "标准关卡",
+        "summary": "亡灵攻陷银月城并抵达太阳井，阿尔萨斯以太阳井之力将克尔苏加德复生为巫妖。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-再会黑石氏族-blackrock-and-roll-too",
+        "titleZh": "再会黑石氏族",
+        "titleEn": "Blackrock & Roll, Too!",
+        "type": "标准关卡",
+        "summary": "亡灵清剿仍在侍奉恶魔的黑石兽人，通过摧毁各族首领掌控的营地打开道路。"
+      },
+      {
+        "number": "第07章",
+        "directory": "07-围攻达拉然-the-siege-of-dalaran",
+        "titleZh": "围攻达拉然",
+        "titleEn": "The Siege of Dalaran",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯逐一击败维持魔法结界的大法师，攻入达拉然并夺取麦迪文之书。"
+      },
+      {
+        "number": "第08章",
+        "directory": "08-在燃烧的天空下-under-the-burning-sky",
+        "titleZh": "在燃烧的天空下",
+        "titleEn": "Under the Burning Sky",
+        "type": "防守关卡",
+        "summary": "亡灵守卫克尔苏加德的召唤仪式，抵挡达拉然残军直到阿克蒙德降临。"
+      }
+    ]
+  },
+  {
+    "directory": "03-兽族战役-入侵卡利姆多",
+    "game": "魔兽争霸 III：混乱之治",
+    "faction": "兽族",
+    "titleZh": "入侵卡利姆多",
+    "titleEn": "The Invasion of Kalimdor",
+    "summary": "萨尔率部落抵达卡利姆多，与牛头人结盟，并在冲突与恶魔腐化中设法拯救格罗姆。",
+    "sourceLabel": "Warcraft Wiki - The Invasion of Kalimdor",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/The_Invasion_of_Kalimdor",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-登陆-landfall",
+        "titleZh": "登陆",
+        "titleEn": "Landfall",
+        "type": "标准关卡",
+        "summary": "部落抵达卡利姆多后寻找失散族人，并帮助凯恩和牛头人抵挡半人马袭击。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-长征-the-long-march",
+        "titleZh": "长征",
+        "titleEn": "The Long March",
+        "type": "护送关卡",
+        "summary": "萨尔护送凯恩的牛头人迁徙队伍穿越荒野，保护科多兽商队免遭半人马截击。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-战歌的怒吼-cry-of-the-warsong",
+        "titleZh": "战歌的怒吼",
+        "titleEn": "Cry of the Warsong",
+        "type": "标准关卡",
+        "summary": "格罗姆违背萨尔命令攻击人类营地，战歌氏族在冲突升级前建立并扩张基地。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-灰谷幽灵-the-spirits-of-ashenvale",
+        "titleZh": "灰谷幽灵",
+        "titleEn": "The Spirits of Ashenvale",
+        "type": "资源关卡",
+        "summary": "战歌氏族在灰谷采集木材并与暗夜精灵交战，格罗姆饮下恶魔之血后击败塞纳留斯。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-暗影猎手-the-hunter-of-shadows",
+        "titleZh": "暗影猎手",
+        "titleEn": "The Hunter of Shadows",
+        "type": "标准关卡",
+        "summary": "萨尔和凯恩追踪被恶魔腐化的格罗姆，通过净化仪式使其摆脱玛诺洛斯控制。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-双足飞龙-where-wyverns-dare",
+        "titleZh": "双足飞龙",
+        "titleEn": "Where Wyverns Dare",
+        "type": "标准关卡",
+        "summary": "萨尔解救被鹰身人囚禁的双足飞龙，借助空中力量突破通往石爪山的敌军。"
+      },
+      {
+        "number": "第07章",
+        "directory": "07-神谕-the-oracle",
+        "titleZh": "神谕",
+        "titleEn": "The Oracle",
+        "type": "双线探索关卡",
+        "summary": "萨尔与吉安娜分别穿越石爪山洞穴，最终在先知面前得知燃烧军团的真正威胁。"
+      },
+      {
+        "number": "第08章",
+        "directory": "08-驱逐恶魔-by-demons-be-driven",
+        "titleZh": "驱逐恶魔",
+        "titleEn": "By Demons Be Driven",
+        "type": "决战关卡",
+        "summary": "萨尔与格罗姆进攻玛诺洛斯的恶魔军势，格罗姆以最后一战解除兽族的血之诅咒。"
+      }
+    ]
+  },
+  {
+    "directory": "04-暗夜精灵战役-永恒的结束",
+    "game": "魔兽争霸 III：混乱之治",
+    "faction": "暗夜精灵",
+    "titleZh": "永恒的结束",
+    "titleEn": "Eternity's End",
+    "summary": "泰兰德与玛法里奥唤醒沉睡的德鲁伊，在燃烧军团入侵中联合各族保卫海加尔山。",
+    "sourceLabel": "Warcraft Wiki - Eternity's End",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Eternity%27s_End_(WC3_campaign)",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-门口的敌人-enemies-at-the-gate",
+        "titleZh": "门口的敌人",
+        "titleEn": "Enemies at the Gate",
+        "type": "标准关卡",
+        "summary": "泰兰德发现外来者闯入灰谷，集结哨兵并驱逐正在砍伐森林的人类与兽族。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-月之女儿-daughters-of-the-moon",
+        "titleZh": "月之女儿",
+        "titleEn": "Daughters of the Moon",
+        "type": "潜行探索关卡",
+        "summary": "泰兰德带领少量哨兵穿过遭入侵的森林，寻找号角并召集暗夜精灵军队。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-唤醒怒风-the-awakening-of-stormrage",
+        "titleZh": "唤醒怒风",
+        "titleEn": "The Awakening of Stormrage",
+        "type": "标准关卡",
+        "summary": "泰兰德进入沉睡者兽穴，在亡灵逼近之际唤醒玛法里奥·怒风。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-德鲁伊的崛起-the-druids-arise",
+        "titleZh": "德鲁伊的崛起",
+        "titleEn": "The Druids Arise",
+        "type": "标准关卡",
+        "summary": "玛法里奥与泰兰德深入腐化森林，唤醒德鲁伊并清除阻碍他们集结的敌人。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-血缘兄弟-brothers-in-blood",
+        "titleZh": "血缘兄弟",
+        "titleEn": "Brothers in Blood",
+        "type": "地下探索关卡",
+        "summary": "泰兰德违背玛法里奥的意见进入地下监牢，释放伊利丹以借助他的力量对抗恶魔。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-火焰与悲伤的命运-a-destiny-of-flame-and-sorrow",
+        "titleZh": "火焰与悲伤的命运",
+        "titleEn": "A Destiny of Flame and Sorrow",
+        "type": "标准关卡",
+        "summary": "伊利丹夺取古尔丹之颅、化身恶魔并击败提克迪奥斯，却因此再次被族人放逐。"
+      },
+      {
+        "number": "第07章",
+        "directory": "07-诸神黄昏-twilight-of-the-gods",
+        "titleZh": "诸神黄昏",
+        "titleEn": "Twilight of the Gods",
+        "type": "防守决战关卡",
+        "summary": "人类、兽族和暗夜精灵依次守卫海加尔山防线，为玛法里奥设下击败阿克蒙德的陷阱争取时间。"
+      }
+    ]
+  },
+  {
+    "directory": "05-暗夜精灵战役-恐怖之潮",
+    "game": "魔兽争霸 III：冰封王座",
+    "faction": "暗夜精灵",
+    "titleZh": "恐怖之潮",
+    "titleEn": "Terror of the Tides",
+    "summary": "玛维追捕逃亡的伊利丹，从破碎群岛一路追至洛丹伦，并卷入娜迦与血精灵的行动。",
+    "sourceLabel": "Warcraft Wiki - Terror of the Tides",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Terror_of_the_Tides",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-娜迦的崛起-rise-of-the-naga",
+        "titleZh": "娜迦的崛起",
+        "titleEn": "Rise of the Naga",
+        "type": "追击关卡",
+        "summary": "玛维追踪伊利丹留下的痕迹，首次遭遇协助他的娜迦军队并追至海岸。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-破碎之岛-the-broken-isles",
+        "titleZh": "破碎之岛",
+        "titleEn": "The Broken Isles",
+        "type": "探索关卡",
+        "summary": "守望者登陆新升起的破碎群岛，寻找伊利丹踪迹并探索岛上的远古遗迹。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-萨格拉斯之墓-the-tomb-of-sargeras",
+        "titleZh": "萨格拉斯之墓",
+        "titleEn": "The Tomb of Sargeras",
+        "type": "地下探索关卡",
+        "summary": "玛维深入萨格拉斯之墓追击伊利丹，在遗迹崩塌前穿越守卫和机关逃出生天。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-背叛者的愤怒-wrath-of-the-betrayer",
+        "titleZh": "背叛者的愤怒",
+        "titleEn": "Wrath of the Betrayer",
+        "type": "护送关卡",
+        "summary": "玛维向信使求援并掩护其抵达海港，同时抵挡伊利丹和娜迦对守望者基地的反击。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-权衡利弊-balancing-the-scales",
+        "titleZh": "权衡利弊",
+        "titleEn": "Balancing the Scales",
+        "type": "标准关卡",
+        "summary": "玛法里奥与泰兰德抵达洛丹伦，联合玛维寻找伊利丹并援助遭受亡灵袭击的血精灵。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-破碎联盟-shards-of-the-alliance",
+        "titleZh": "破碎联盟",
+        "titleEn": "Shards of the Alliance",
+        "type": "护送关卡",
+        "summary": "泰兰德与凯尔护送血精灵车队穿越亡灵占据的区域，在联盟裂痕中争取撤离。"
+      },
+      {
+        "number": "第07章",
+        "directory": "07-达拉然废墟-the-ruins-of-dalaran",
+        "titleZh": "达拉然废墟",
+        "titleEn": "The Ruins of Dalaran",
+        "type": "限时关卡",
+        "summary": "暗夜精灵与血精灵攻入达拉然废墟，在限时内摧毁伊利丹用于撕裂诺森德的魔法装置。"
+      },
+      {
+        "number": "第08章",
+        "directory": "08-怒风兄弟-the-brothers-stormrage",
+        "titleZh": "怒风兄弟",
+        "titleEn": "The Brothers Stormrage",
+        "type": "双线决战关卡",
+        "summary": "玛法里奥与伊利丹暂时联手，以地面和水路两支军队营救被亡灵包围的泰兰德。"
+      }
+    ]
+  },
+  {
+    "directory": "06-血精灵战役-血精灵的诅咒",
+    "game": "魔兽争霸 III：冰封王座",
+    "faction": "血精灵",
+    "titleZh": "血精灵的诅咒",
+    "titleEn": "Curse of the Blood Elves",
+    "summary": "凯尔率领血精灵摆脱加里瑟斯的压迫，与瓦丝琪结盟并前往外域投靠伊利丹。",
+    "sourceLabel": "Warcraft Wiki - Curse of the Blood Elves",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Curse_of_the_Blood_Elves",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-误解-misconceptions",
+        "titleZh": "误解",
+        "titleEn": "Misconceptions",
+        "type": "标准关卡",
+        "summary": "凯尔奉加里瑟斯之命修复观测站，却在资源匮乏和亡灵威胁下被迫接受娜迦援助。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-黑暗契约-a-dark-covenant",
+        "titleZh": "黑暗契约",
+        "titleEn": "A Dark Covenant",
+        "type": "标准关卡",
+        "summary": "血精灵与娜迦合作摧毁亡灵基地；加里瑟斯以通敌罪逮捕凯尔及其部下。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-达拉然地牢-the-dungeons-of-dalaran",
+        "titleZh": "达拉然地牢",
+        "titleEn": "The Dungeons of Dalaran",
+        "type": "地下逃脱关卡",
+        "summary": "瓦丝琪营救被囚血精灵，众人穿越达拉然地牢并开启通往外域的传送门。"
+      },
+      {
+        "number": "隐藏关",
+        "directory": "03s-穿越-the-crossing",
+        "titleZh": "穿越",
+        "titleEn": "The Crossing",
+        "type": "隐藏防守关卡",
+        "summary": "血精灵在传送过程中守卫传送门，阻止来袭敌军干扰部队依次进入外域。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-寻找伊利丹-the-search-for-illidan",
+        "titleZh": "寻找伊利丹",
+        "titleEn": "The Search for Illidan",
+        "type": "标准关卡",
+        "summary": "凯尔与瓦丝琪在外域寻找被玛维俘获的伊利丹，并从守望者手中将他救出。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-深渊之门-gates-of-the-abyss",
+        "titleZh": "深渊之门",
+        "titleEn": "Gates of the Abyss",
+        "type": "标准关卡",
+        "summary": "伊利丹的联军关闭外域各处恶魔传送门，削弱玛瑟里顿不断到来的援军。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-外域之王-lord-of-outland",
+        "titleZh": "外域之王",
+        "titleEn": "Lord of Outland",
+        "type": "决战关卡",
+        "summary": "伊利丹、凯尔与瓦丝琪攻入黑暗堡垒，击败玛瑟里顿并夺取外域统治权。"
+      }
+    ]
+  },
+  {
+    "directory": "07-不死族战役-诅咒者的遗物",
+    "game": "魔兽争霸 III：冰封王座",
+    "faction": "不死族",
+    "titleZh": "诅咒者的遗物",
+    "titleEn": "Legacy of the Damned",
+    "summary": "巫妖王力量衰退后，阿尔萨斯返回诺森德；希尔瓦娜斯则在洛丹伦争取被遗忘者的自由。",
+    "sourceLabel": "Warcraft Wiki - Legacy of the Damned",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Legacy_of_the_Damned",
+    "missions": [
+      {
+        "number": "第01章",
+        "directory": "01-阿尔萨斯国王-king-arthas",
+        "titleZh": "阿尔萨斯国王",
+        "titleEn": "King Arthas",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯清剿洛丹伦残余人类势力，却发现巫妖王力量衰退且亡灵控制开始动摇。"
+      },
+      {
+        "number": "第02章",
+        "directory": "02-洛丹伦的逃亡-the-flight-from-lordaeron",
+        "titleZh": "洛丹伦的逃亡",
+        "titleEn": "The Flight from Lordaeron",
+        "type": "逃脱关卡",
+        "summary": "遭到希尔瓦娜斯伏击后，力量衰弱的阿尔萨斯穿越洛丹伦城废墟逃往安全区域。"
+      },
+      {
+        "number": "第03章",
+        "directory": "03-黑暗女王-the-dark-lady",
+        "titleZh": "黑暗女王",
+        "titleEn": "The Dark Lady",
+        "type": "标准关卡",
+        "summary": "希尔瓦娜斯解放不再受巫妖王控制的亡灵，并迫使瓦里玛萨斯加入自己的阵营。"
+      },
+      {
+        "number": "第04章",
+        "directory": "04-重返诺森德-the-return-to-northrend",
+        "titleZh": "重返诺森德",
+        "titleEn": "The Return to Northrend",
+        "type": "标准关卡",
+        "summary": "阿尔萨斯返回诺森德与阿努巴拉克会合，突破血精灵与娜迦防线赶往冰冠冰川。"
+      },
+      {
+        "number": "第05章",
+        "directory": "05-恐惧魔王的陨落-dreadlords-fall",
+        "titleZh": "恐惧魔王的陨落",
+        "titleEn": "Dreadlord's Fall",
+        "type": "标准关卡",
+        "summary": "希尔瓦娜斯与瓦里玛萨斯袭击德赛洛克控制的势力，削弱恐惧魔王对洛丹伦的统治。"
+      },
+      {
+        "number": "第06章",
+        "directory": "06-洛丹伦的新势力-a-new-power-in-lordaeron",
+        "titleZh": "洛丹伦的新势力",
+        "titleEn": "A New Power in Lordaeron",
+        "type": "多阵营决战关卡",
+        "summary": "希尔瓦娜斯联合加里瑟斯攻占首都，消灭巴纳泽尔后建立被遗忘者的新势力。"
+      },
+      {
+        "number": "第07章上",
+        "directory": "07a-进入地下蛛网洞穴-into-the-shadow-web-caverns",
+        "titleZh": "进入地下蛛网洞穴",
+        "titleEn": "Into the Shadow Web Caverns",
+        "type": "地下探索关卡",
+        "summary": "阿尔萨斯与阿努巴拉克进入艾卓-尼鲁布地下通道，穿越蛛网洞穴以缩短前往冰冠冰川的路程。"
+      },
+      {
+        "number": "第07章中",
+        "directory": "07b-被遗忘者-the-forgotten-ones",
+        "titleZh": "被遗忘者",
+        "titleEn": "The Forgotten Ones",
+        "type": "地下探索关卡",
+        "summary": "队伍深入古老地下遗迹，躲避机关并对抗潜伏其中、连蛛魔也畏惧的无面者。"
+      },
+      {
+        "number": "第07章下",
+        "directory": "07c-通往上层王国-ascent-to-the-upper-kingdom",
+        "titleZh": "通往上层王国",
+        "titleEn": "Ascent to the Upper Kingdom",
+        "type": "地下逃脱关卡",
+        "summary": "地下王国开始崩塌，阿尔萨斯与阿努巴拉克必须在限时内穿越洞穴返回地表。"
+      },
+      {
+        "number": "第08章",
+        "directory": "08-冰与火之协奏曲-a-symphony-of-frost-and-flame",
+        "titleZh": "冰与火之协奏曲",
+        "titleEn": "A Symphony of Frost and Flame",
+        "type": "决战关卡",
+        "summary": "阿尔萨斯与伊利丹争夺四座方尖塔的控制权，决定谁能抵达并掌控冰封王座。"
+      }
+    ]
+  },
+  {
+    "directory": "08-兽族额外战役-多洛特的成立",
+    "game": "魔兽争霸 III：冰封王座",
+    "faction": "兽族额外",
+    "titleZh": "多洛特的成立",
+    "titleEn": "The Founding of Durotar",
+    "summary": "雷克萨受萨尔所托帮助新生的多洛特解决危机，最终卷入部落与海军上将戴林的战争。",
+    "sourceLabel": "Warcraft Wiki - The Founding of Durotar",
+    "sourceUrl": "https://warcraft.wiki.gg/wiki/Founding_of_Durotar",
+    "missions": [
+      {
+        "number": "第01幕",
+        "directory": "01-征服大地-to-tame-a-land",
+        "titleZh": "征服大地",
+        "titleEn": "To Tame a Land",
+        "type": "角色扮演关卡",
+        "summary": "雷克萨抵达多洛特并为萨尔处理各地威胁，在探索和支线任务中集结洛坎与陈等伙伴。"
+      },
+      {
+        "number": "第02幕",
+        "directory": "02-古老的憎恨-old-hatreds",
+        "titleZh": "古老的憎恨",
+        "titleEn": "Old Hatreds",
+        "type": "角色扮演关卡",
+        "summary": "雷克萨调查人类敌意并寻求牛头人援军，在冲突升级中揭开海军上将戴林的进攻计划。"
+      },
+      {
+        "number": "第03幕",
+        "directory": "03-荣耀之火-a-blaze-of-glory",
+        "titleZh": "荣耀之火",
+        "titleEn": "A Blaze of Glory",
+        "type": "角色扮演决战关卡",
+        "summary": "部落盟军向塞拉摩发动最终反击；雷克萨击败戴林，同时避免伤害吉安娜及其支持和平的部队。"
+      }
+    ]
+  }
+]

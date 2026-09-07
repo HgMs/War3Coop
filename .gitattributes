@@ -1,0 +1,16 @@
+* text=auto
+
+*.md text eol=lf
+*.j text eol=crlf
+*.ai text eol=crlf
+*.txt text eol=crlf
+
+# Warcraft map and campaign containers are binary archives.
+*.w3m binary
+*.w3x binary
+*.w3n binary
+*.mpq binary
+*.blp binary
+*.mdx binary
+*.wav binary
+*.mp3 binary

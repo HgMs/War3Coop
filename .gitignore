@@ -1,0 +1,40 @@
+# Warcraft III World Editor backups and temporary files
+*.bak
+*.tmp
+*.temp
+*.autosave
+*.w3x~
+*.w3m~
+
+# Local game installations and proprietary game data
+game-data/
+game-install*/
+/game/*
+!/game/README.md
+War3.mpq
+War3x.mpq
+War3Patch.mpq
+*.w3mod/
+
+# Original maps and unapproved third-party candidates stay local.
+output/**/original/**
+!output/**/original/.gitkeep
+output/**/third-party/**
+!output/**/third-party/.gitkeep
+
+# Local test output
+build/
+dist/
+test-results/
+logs/
+
+# Language and build-system outputs
+**/bin/
+**/obj/
+
+# Tool and operating-system state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "dotnet_sdk": "8.0.424",
+  "nuget": {
+    "War3Net.Build.Core": "6.0.3",
+    "War3Net.IO.Mpq": "6.0.3"
+  },
+  "optional_fallbacks": {
+    "StormLib": "not-installed",
+    "CascLib": "planned-for-casc-support"
+  }
+}
+

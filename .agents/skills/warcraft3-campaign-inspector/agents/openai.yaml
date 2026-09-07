@@ -1,0 +1,5 @@
+interface:
+  display_name: "Warcraft III Campaign Inspector"
+  short_description: "Inspect Warcraft III campaigns, maps, and game archives"
+  default_prompt: "Use $warcraft3-campaign-inspector to inspect this Warcraft III campaign or map and report its structure."
+
