@@ -8,11 +8,6 @@ $projectRoot = Split-Path -Parent $PSScriptRoot
 $manifestPath = Join-Path $projectRoot 'docs/campaigns.json'
 $loadingScreensPath = Join-Path $projectRoot 'docs/original-loading-screens.json'
 $outputRoot = Join-Path $projectRoot 'output'
-$gameRoot = Join-Path $projectRoot 'game'
-$versions = @(
-    '1.24e',
-    '1.31'
-)
 $selectedMissions = [System.Collections.Generic.HashSet[string]]::new(
     [System.StringComparer]::OrdinalIgnoreCase
 )
@@ -47,12 +42,6 @@ function Write-Utf8File {
     $parent = Split-Path -Parent $Path
     New-Item -ItemType Directory -Force -Path $parent | Out-Null
     Set-Content -LiteralPath $Path -Value $Content.TrimEnd() -Encoding utf8
-}
-
-foreach ($version in $versions) {
-    $versionDirectory = Join-Path $gameRoot $version
-    New-Item -ItemType Directory -Force -Path $versionDirectory | Out-Null
-    Write-Utf8File -Path (Join-Path $versionDirectory '.gitkeep') -Content ''
 }
 
 $campaigns = Get-Content -LiteralPath $manifestPath -Raw -Encoding utf8 |
@@ -235,17 +224,6 @@ foreach ($campaign in $campaigns) {
                 '- 重新评估触发条件：发现新候选、授权或兼容证据变化、实际成本越界'
             ) -join [Environment]::NewLine
             Write-Utf8File -Path (Join-Path $missionDirectory 'SOURCE_EVALUATION.md') -Content $sourceEvaluation
-
-            foreach ($subdirectory in @(
-                'original',
-                'third-party',
-                'workspace',
-                'release'
-            )) {
-                $path = Join-Path $missionDirectory $subdirectory
-                New-Item -ItemType Directory -Force -Path $path | Out-Null
-                Write-Utf8File -Path (Join-Path $path '.gitkeep') -Content ''
-            }
         } else {
             $missionReadme = @(
                 "# $($mission.number) $($mission.titleZh)",

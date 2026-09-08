@@ -7,15 +7,15 @@
 - `ORIGINAL.md`：原版所属版本、章节名、英文名、本地加载界面原文和来源证据；
 - `README.md`：是否列入制作批次以及当前状态。
 
-制作资料目录按需创建，不为暂不制作的关卡预留空目录。关卡列入制作批次后可使用：
+制作资料和工作目录按阶段、按需创建，不因关卡仅被列入制作批次就预留空目录。关卡推进后可使用：
 
 - `ORIGINAL_COOP_MECHANICS.md`：官方原版中受多人化影响的机制、证据、负责人逐项决定及最终验收标准；
 - `COMMUNITY_SEARCH.md`：逐站点、逐检索式记录社区搜索结果和检索充分性结论；
 - `SOURCE_EVALUATION.md`：候选硬条件核验、社区/官方两条路线的成本证据和底图决策；
-- `original/`：从合法游戏数据提取的原版地图或对照材料，仅限本地使用；
-- `third-party/`：互联网候选作品及其校验材料，取得与授权核验后方可放入；
-- `workspace/`：当前可编辑工作文件、解包内容和制作记录；
-- `release/`：通过验收的最终多人地图及发布说明。
+- `original/`：需要落盘原版地图或对照材料时创建，仅限本地使用；
+- `third-party/`：实际取得互联网候选作品或授权材料时创建；
+- `workspace/`：进入实现、隔离试验或验收准备且产生工作文件时创建；
+- `release/`：负责人确认验收完成、准备发布时创建。
 
 `original/` 和 `third-party/` 中的外部二进制默认不纳入 Git。许可明确的第三方内容如需提交，应先调整忽略规则并保存授权证据。
 
@@ -25,7 +25,7 @@
 
 进入开发后，`workspace/PLAN.md` 记录开发内容指导和需求追踪，`workspace/TESTING.md` 记录自动验证及待用户实机验证。只有负责人确认验收完成后，才能把与验收 SHA-256 一致的地图和发布说明放入 `release/`。社区作品满足全部条件时走直接采用分支，不创建无意义的自行改造计划；没有再分发许可时只记录原发布页、版本和校验信息。
 
-战役与关卡清单的数据源为 [`docs/campaigns.json`](../docs/campaigns.json)；本地加载界面原文及地图来源记录在 [`docs/original-loading-screens.json`](../docs/original-loading-screens.json)。目录由 [`tools/Initialize-ProjectStructure.ps1`](../tools/Initialize-ProjectStructure.ps1)生成。
+战役与关卡清单的数据源为 [`docs/campaigns.json`](../docs/campaigns.json)；本地加载界面原文及地图来源记录在 [`docs/original-loading-screens.json`](../docs/original-loading-screens.json)。战役、关卡和说明文档由 [`tools/Initialize-ProjectStructure.ps1`](../tools/Initialize-ProjectStructure.ps1)生成；制作子目录由负责该关的开发流程在首次使用时创建。
 
 ## 第一批制作关卡
 
@@ -35,7 +35,7 @@
 - 血精灵战役《血精灵的诅咒》：第 06 章“外域之王”；
 - 不死族战役《诅咒者的遗物》：第 01 章“阿尔萨斯国王”、第 06 章“洛丹伦的新势力”。
 
-其他关卡当前只保留说明，不创建制作资料目录。
+除正在制作的关卡外，其他关卡当前只保留说明和已形成的阶段文档，不预建空制作目录。
 
 ## 战役
 
