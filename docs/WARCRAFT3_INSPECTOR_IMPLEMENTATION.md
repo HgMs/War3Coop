@@ -213,6 +213,5 @@ Storm 算法先生成一个 `0x500` 项的查找表，然后以两个滚动 seed
 - MPQ 调用封装：`tools/wc3-inspect/src/Wc3Inspect.Cli/ArchiveService.cs`
 - 地图检查：`tools/wc3-inspect/src/Wc3Inspect.Cli/MapInspector.cs`
 - 战役检查：`tools/wc3-inspect/src/Wc3Inspect.Cli/CampaignInspector.cs`
-- 编辑构建示例：`tools/wc3-coop-build/src/Wc3CoopBuild.Cli/Orc08Builder.cs`
+- 单关编辑构建示例：`output/03-兽族战役-入侵卡利姆多/08-驱逐恶魔-by-demons-be-driven/workspace/wc3-coop-build/src/Wc3CoopBuild.Cli/Orc08Builder.cs`
 - War3Net MPQ 参考源码：`build/reference/War3Net/src/War3Net.IO.Mpq/`
-

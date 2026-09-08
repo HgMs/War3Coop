@@ -2,9 +2,9 @@
   "schema_version": 1,
   "kind": "map",
   "source": {
-    "path": "D:\\coop\\output\\03-\u517D\u65CF\u6218\u5F79-\u5165\u4FB5\u5361\u5229\u59C6\u591A\\08-\u9A71\u9010\u6076\u9B54-by-demons-be-driven\\workspace\\Orc08-Coop-Development.w3x",
-    "size": 272547,
-    "sha256": "A7F10408F22628388D7F41E4FA3D6167DEE54A5400E225953D9EE732B405BE56"
+    "path": "D:\\War3Coop\\output\\03-\u517D\u65CF\u6218\u5F79-\u5165\u4FB5\u5361\u5229\u59C6\u591A\\08-\u9A71\u9010\u6076\u9B54-by-demons-be-driven\\workspace\\Orc08-Coop-Development.w3x",
+    "size": 272662,
+    "sha256": "8F34AA11BCDD235176E31C80BC4A8C9669EEB0DF063B122B9DC9350B29B6420B"
   },
   "map": {
     "format_version": 18,
@@ -104,9 +104,9 @@
   },
   "content": {
     "trigger_string_count": 94,
-    "script_bytes": 300274,
-    "script_function_count": 424,
-    "script_udg_global_count": 54,
+    "script_bytes": 301943,
+    "script_function_count": 425,
+    "script_udg_global_count": 55,
     "unit_count": 291,
     "doodad_count": 3189,
     "special_doodad_count": 0,

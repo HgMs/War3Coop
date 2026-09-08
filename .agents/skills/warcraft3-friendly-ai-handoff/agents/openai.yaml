@@ -1,4 +1,4 @@
 interface:
-  display_name: "Warcraft III Friendly AI Handoff"
-  short_description: "在人类玩家与原战役友方 AI 之间可靠切换阵营控制"
-  default_prompt: "Use $warcraft3-friendly-ai-handoff to design and audit an optional human-player takeover of an original Warcraft III campaign AI faction."
+  display_name: "Warcraft III Friendly AI Startup Handoff"
+  short_description: "按开局槽位一次性选择真人控制或保留原战役友方 AI"
+  default_prompt: "Use $warcraft3-friendly-ai-handoff to design and audit a startup-only optional human takeover of an original Warcraft III campaign AI faction."

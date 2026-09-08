@@ -18,9 +18,7 @@ War3Patch.mpq
 
 # Original maps and unapproved third-party candidates stay local.
 output/**/original/**
-!output/**/original/.gitkeep
 output/**/third-party/**
-!output/**/third-party/.gitkeep
 
 # Reproducible map builds stay local. Editor-owned source maps belong under
 # workspace/source/; release maps remain intentionally trackable.

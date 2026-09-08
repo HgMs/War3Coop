@@ -51,7 +51,7 @@ internal static partial class Orc08Builder
         builder.AddFile(map.GetInfoFile() ?? throw new InvalidDataException("Failed to serialize war3map.w3i."));
         builder.AddFile(map.GetScriptFile() ?? throw new InvalidDataException("Failed to serialize war3map.j."));
         builder.AddFile(
-            map.GetTriggerStringsFile(new UTF8Encoding(encoderShouldEmitUTF8Identifier: true, throwOnInvalidBytes: true))
+            map.GetTriggerStringsFile(new UTF8Encoding(encoderShouldEmitUTF8Identifier: false, throwOnInvalidBytes: true))
             ?? throw new InvalidDataException("Failed to serialize war3map.wts."));
         builder.SaveWithPreArchiveData(output);
 
@@ -118,7 +118,7 @@ internal static partial class Orc08Builder
 
     private static string PatchScript(string source)
     {
-        var script = source.Replace("\r\n", "\n", StringComparison.Ordinal);
+        var script = NormalizeToLf(source);
 
         RequireCount(script, "function config takes nothing returns nothing", 1);
         RequireCount(script, "call SetPlayerController( Player(9), MAP_CONTROL_COMPUTER )", 1);
@@ -151,6 +151,7 @@ internal static partial class Orc08Builder
             "    button              udg_CoopDifficultyNormal   = null\n" +
             "    button              udg_CoopDifficultyHard     = null\n" +
             "    trigger             udg_CoopDifficultyTrigger  = null\n" +
+            "    timer               udg_CoopDifficultyStartupTimer = null\n" +
             "    timer               udg_CoopDifficultyTimer    = null\n" +
             "    boolean             udg_CoopInitializationStarted = false\n",
             StringComparison.Ordinal);
@@ -174,9 +175,30 @@ internal static partial class Orc08Builder
             "    call SetPlayerRaceSelectable( Player(9), false )",
             StringComparison.Ordinal);
 
+        RequireCount(script, "    call SetPlayerTechMaxAllowed( Player(0), 'Otch', 0 )", 1);
+        script = script.Replace(
+            "    call SetPlayerTechMaxAllowed( Player(0), 'Otch', 0 )",
+            "    call SetPlayerTechMaxAllowed( Player(0), 'Otch', 0 )\n" +
+            "    call SetPlayerTechMaxAllowed( Player(0), 'Oshd', 0 )",
+            StringComparison.Ordinal);
+        RequireCount(script, "    call SetPlayerTechMaxAllowed( Player(9), 'Hmkg', 0 )", 1);
+        script = script.Replace(
+            "    call SetPlayerTechMaxAllowed( Player(9), 'Hmkg', 0 )",
+            "    call SetPlayerTechMaxAllowed( Player(9), 'Hmkg', 0 )\n" +
+            "    call SetPlayerTechMaxAllowed( Player(9), 'Hblm', 0 )",
+            StringComparison.Ordinal);
+
+        foreach (var enemyPlayerId in new[] { 1, 3, 5, 6, 10 })
+        {
+            var selectable = $"    call SetPlayerRaceSelectable( Player({enemyPlayerId}), true )";
+            var fixedRace = $"    call SetPlayerRaceSelectable( Player({enemyPlayerId}), false )";
+            RequireCount(script, selectable, 1);
+            script = script.Replace(selectable, fixedRace, StringComparison.Ordinal);
+        }
+
         script = script.Replace(
             "    call InitGlobals(  )\n    call InitCustomTriggers(  )\n    call RunInitializationTriggers(  )",
-            "    call InitGlobals(  )\n    call CoopClassifyPlayerTwo(  )\n    call CoopBeginDifficultySelection(  )",
+            "    call InitGlobals(  )\n    call CoopClassifyPlayerTwo(  )\n    call CoopScheduleDifficultySelection(  )",
             StringComparison.Ordinal);
 
         script = script.Replace(
@@ -214,15 +236,26 @@ internal static partial class Orc08Builder
             """
 function Trig_Game_Cache_Actions takes nothing returns nothing
     call ConditionalTriggerExecute( gg_trg_Game_Cache_Default_Thrall )
-    call UnitAddItemByIdSwapped( 'ckng', udg_Thrall )
+    call UnitAddItemByIdSwapped( 'nspi', udg_Thrall )
     call UnitAddItemByIdSwapped( 'ratc', udg_Thrall )
-    call UnitAddItemByIdSwapped( 'ciri', udg_Thrall )
+    call UnitAddItemByIdSwapped( 'rat9', udg_Thrall )
+    call UnitAddItemByIdSwapped( 'cnob', udg_Thrall )
+    call UnitAddItemByIdSwapped( 'rin1', udg_Thrall )
+    call UnitAddItemByIdSwapped( 'rin1', udg_Thrall )
     call ConditionalTriggerExecute( gg_trg_Game_Cache_Default_Cairne )
-    call UnitAddItemByIdSwapped( 'nspi', udg_Cairne )
-    call UnitAddItemByIdSwapped( 'bgst', udg_Cairne )
-    call UnitAddItemByIdSwapped( 'rwiz', udg_Cairne )
     call UnitAddItemByIdSwapped( 'ofir', udg_Cairne )
+    call UnitAddItemByIdSwapped( 'bgst', udg_Cairne )
+    call UnitAddItemByIdSwapped( 'ckng', udg_Cairne )
+    call UnitAddItemByIdSwapped( 'rwiz', udg_Cairne )
+    call UnitAddItemByIdSwapped( 'pmna', udg_Cairne )
+    call UnitAddItemByIdSwapped( 'rlif', udg_Cairne )
     set udg_Jaina = gg_unit_Hjai_0021
+    call UnitAddItemByIdSwapped( 'ckng', udg_Jaina )
+    call UnitAddItemByIdSwapped( 'hcun', udg_Jaina )
+    call UnitAddItemByIdSwapped( 'ciri', udg_Jaina )
+    call UnitAddItemByIdSwapped( 'cnob', udg_Jaina )
+    call UnitAddItemByIdSwapped( 'gcel', udg_Jaina )
+    call UnitAddItemByIdSwapped( 'bspd', udg_Jaina )
     set udg_Grom = gg_unit_Opgh_0020
 endfunction
 """);
@@ -340,25 +373,37 @@ endfunction
         script = script.Replace(
             "    call SetPlayerAllianceStateBJ( Player(9), udg_WarSong, bj_ALLIANCE_UNALLIED )",
             "    call SetPlayerAllianceStateBJ( Player(9), udg_WarSong, bj_ALLIANCE_UNALLIED )\n" +
-            "    call CoopRestoreEnemyDiplomacy(  )",
+            "    call CoopApplyHumanPlayerTwoDiplomacy(  )",
             StringComparison.Ordinal);
         script = script.Replace(
             "    call SetPlayerAllianceStateBJ( Player(9), Player(4), bj_ALLIANCE_UNALLIED )",
             "    call SetPlayerAllianceStateBJ( Player(9), Player(4), bj_ALLIANCE_UNALLIED )\n" +
-            "    call CoopRestoreEnemyDiplomacy(  )",
+            "    call CoopApplyHumanPlayerTwoDiplomacy(  )",
             StringComparison.Ordinal);
         script = script.Replace(
             "    call SetUnitColor( gg_unit_nbal_0010, PLAYER_COLOR_GREEN )",
-            "    call CoopRestoreEnemyDiplomacy(  )\n" +
+            "    call CoopApplyHumanPlayerTwoDiplomacy(  )\n" +
             "    call SetUnitColor( gg_unit_nbal_0010, PLAYER_COLOR_GREEN )",
             StringComparison.Ordinal);
 
         script = script.Replace(
             "function InitGlobals takes nothing returns nothing\n",
-            CoopFunctions + "\nfunction InitGlobals takes nothing returns nothing\n",
+            NormalizeToLf(CoopFunctions) + "\nfunction InitGlobals takes nothing returns nothing\n",
+            StringComparison.Ordinal);
+        script = script.Replace(
+            "function main takes nothing returns nothing\n",
+            NormalizeToLf(CoopDifficultyFunctions) + "\nfunction main takes nothing returns nothing\n",
             StringComparison.Ordinal);
 
         RequireCount(script, "call SetPlayerController( Player(9), MAP_CONTROL_USER )", 1);
+        RequireCount(script, "call SetPlayerController( Player(COOP_HUMAN_EXPEDITION_PLAYER_ID), MAP_CONTROL_COMPUTER )", 1);
+        RequireCount(script, "call SetPlayerTechMaxAllowed( Player(0), 'Oshd', 0 )", 1);
+        RequireCount(script, "call SetPlayerTechMaxAllowed( Player(9), 'Hblm', 0 )", 1);
+        foreach (var fixedRacePlayerId in new[] { 0, 1, 3, 5, 6, 9, 10 })
+        {
+            RequireCount(script, $"call SetPlayerRaceSelectable( Player({fixedRacePlayerId}), false )", 1);
+            RequireCount(script, $"call SetPlayerRaceSelectable( Player({fixedRacePlayerId}), true )", 0);
+        }
         RequireCount(script, "call CoopStartJainaAI(  )", 2);
         RequireCount(script, "call CoopCommandJainaAI(", 4);
         RequireCount(script, "call StartCampaignAI( Player(9), \"o08_Jaina.ai\" )", 1);
@@ -369,12 +414,20 @@ endfunction
         RequireCount(script, "call CoopDefeat( ", 3);
         RequireCount(script, "call CoopClassifyPlayerTwo(  )", 1);
         RequireCount(script, "call CoopConfigurePlayerTwoSystems(  )", 1);
-        RequireCount(script, "call CoopBeginDifficultySelection(  )", 1);
+        RequireCount(script, "call CoopScheduleDifficultySelection(  )", 1);
+        RequireCount(script, "call CoopBeginDifficultySelection(  )", 0);
         RequireCount(script, "call InitCustomTriggers(  )", 1);
         RequireCount(script, "call RunInitializationTriggers(  )", 1);
         RequireCount(script, "call SetGameDifficulty( difficulty )", 1);
         RequireCount(script, "call SetMapFlag( MAP_LOCK_ALLIANCE_CHANGES, false )", 1);
         RequireCount(script, "call SetMapFlag( MAP_ALLIANCE_CHANGES_HIDDEN, false )", 1);
+        RequireCount(script, "function CoopApplyHumanPlayerTwoDiplomacy takes nothing returns nothing", 1);
+        RequireCount(script, "call SetPlayerAllianceStateAllyBJ( Player(0), Player(9), true )", 1);
+        RequireCount(script, "call SetPlayerAllianceStateAllyBJ( Player(9), Player(0), true )", 1);
+        RequireCount(script, "call SetPlayerAllianceStateBJ( Player(0), Player(9), bj_ALLIANCE_ALLIED )", 0);
+        RequireCount(script, "call SetPlayerAllianceStateBJ( Player(9), Player(0), bj_ALLIANCE_ALLIED )", 0);
+        RequireCount(script, "call CoopApplyHumanPlayerTwoDiplomacy(  )", 8);
+        RequireCount(script, "CoopRestoreEnemyDiplomacy", 0);
         RequireCount(script, "call CoopCaptureCameras(  )", 2);
         RequireCount(script, "call CoopRestoreSavedCameras(  )", 4);
         RequireCount(script, "call SetUnitOwner( udg_Cairne", 0);
@@ -388,7 +441,7 @@ endfunction
         RequireCount(script, "SetMissionAvailableBJ(", 0);
         RequireCount(script, "GetPlayerStructureCount(udg_Player, true) <= 0", 1);
 
-        return script.Replace("\n", "\r\n", StringComparison.Ordinal);
+        return NormalizeToLf(script).Replace("\n", "\r\n", StringComparison.Ordinal);
     }
 
     private static string DuplicateMatchingLinesForHumanPlayer(
@@ -445,6 +498,13 @@ endfunction
             : value[..index] + replacement + value[(index + source.Length)..];
     }
 
+    private static string NormalizeToLf(string value)
+    {
+        return value
+            .Replace("\r\n", "\n", StringComparison.Ordinal)
+            .Replace("\r", "\n", StringComparison.Ordinal);
+    }
+
     private static void RequireCount(string text, string value, int expected)
     {
         var actual = text.Split(value, StringSplitOptions.None).Length - 1;
@@ -478,68 +538,9 @@ endfunction
 //===========================================================================
 function CoopClassifyPlayerTwo takes nothing returns nothing
     set udg_CoopPlayerTwoHuman = ( GetPlayerController(Player(COOP_HUMAN_EXPEDITION_PLAYER_ID)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(COOP_HUMAN_EXPEDITION_PLAYER_ID)) == PLAYER_SLOT_STATE_PLAYING )
-endfunction
-
-function CoopFinishDifficultySelection takes gamedifficulty difficulty returns nothing
-    if ( udg_CoopInitializationStarted ) then
-        return
+    if ( not udg_CoopPlayerTwoHuman ) then
+        call SetPlayerController( Player(COOP_HUMAN_EXPEDITION_PLAYER_ID), MAP_CONTROL_COMPUTER )
     endif
-    set udg_CoopInitializationStarted = true
-    call SetGameDifficulty( difficulty )
-    call PauseTimer( udg_CoopDifficultyTimer )
-    call DialogDisplay( Player(0), udg_CoopDifficultyDialog, false )
-    call DisableTrigger( udg_CoopDifficultyTrigger )
-    call DestroyTrigger( udg_CoopDifficultyTrigger )
-    call DestroyTimer( udg_CoopDifficultyTimer )
-    call DialogClear( udg_CoopDifficultyDialog )
-    call DialogDestroy( udg_CoopDifficultyDialog )
-    set udg_CoopDifficultyTrigger = null
-    set udg_CoopDifficultyTimer = null
-    set udg_CoopDifficultyDialog = null
-    set udg_CoopDifficultyNormal = null
-    set udg_CoopDifficultyHard = null
-    call InitCustomTriggers(  )
-    call CoopConfigurePlayerTwoSystems(  )
-    call RunInitializationTriggers(  )
-endfunction
-
-function CoopChooseDifficulty takes nothing returns nothing
-    if ( GetTriggerEventId() == EVENT_GAME_TIMER_EXPIRED ) then
-        call DisplayTimedTextToPlayer( Player(0), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
-        if ( udg_CoopPlayerTwoHuman ) then
-            call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
-        endif
-        call CoopFinishDifficultySelection( MAP_DIFFICULTY_NORMAL )
-    elseif ( GetClickedButton() == udg_CoopDifficultyHard ) then
-        call DisplayTimedTextToPlayer( Player(0), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_905") )
-        if ( udg_CoopPlayerTwoHuman ) then
-            call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_905") )
-        endif
-        call CoopFinishDifficultySelection( MAP_DIFFICULTY_HARD )
-    else
-        call DisplayTimedTextToPlayer( Player(0), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
-        if ( udg_CoopPlayerTwoHuman ) then
-            call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
-        endif
-        call CoopFinishDifficultySelection( MAP_DIFFICULTY_NORMAL )
-    endif
-endfunction
-
-function CoopBeginDifficultySelection takes nothing returns nothing
-    set udg_CoopDifficultyDialog = DialogCreate()
-    call DialogSetMessage( udg_CoopDifficultyDialog, GetLocalizedString("TRIGSTR_900") )
-    set udg_CoopDifficultyNormal = DialogAddButton( udg_CoopDifficultyDialog, GetLocalizedString("TRIGSTR_901"), 0 )
-    set udg_CoopDifficultyHard = DialogAddButton( udg_CoopDifficultyDialog, GetLocalizedString("TRIGSTR_902"), 0 )
-    set udg_CoopDifficultyTrigger = CreateTrigger()
-    set udg_CoopDifficultyTimer = CreateTimer()
-    call TriggerRegisterDialogEvent( udg_CoopDifficultyTrigger, udg_CoopDifficultyDialog )
-    call TriggerRegisterTimerExpireEvent( udg_CoopDifficultyTrigger, udg_CoopDifficultyTimer )
-    call TriggerAddAction( udg_CoopDifficultyTrigger, function CoopChooseDifficulty )
-    call DialogDisplay( Player(0), udg_CoopDifficultyDialog, true )
-    if ( udg_CoopPlayerTwoHuman ) then
-        call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 30.00, GetLocalizedString("TRIGSTR_903") )
-    endif
-    call TimerStart( udg_CoopDifficultyTimer, 30.00, false, null )
 endfunction
 
 function CoopConfigurePlayerTwoSystems takes nothing returns nothing
@@ -603,27 +604,29 @@ function CoopSetEnemyPair takes player enemy returns nothing
     call SetPlayerAllianceStateBJ( enemy, Player(9), bj_ALLIANCE_UNALLIED )
 endfunction
 
-function CoopRestoreEnemyDiplomacy takes nothing returns nothing
-    call SetPlayerAllianceStateBJ( Player(0), Player(9), bj_ALLIANCE_ALLIED )
-    call SetPlayerAllianceStateBJ( Player(9), Player(0), bj_ALLIANCE_ALLIED )
-    call SetPlayerAlliance( Player(0), Player(9), ALLIANCE_SHARED_VISION, true )
-    call SetPlayerAlliance( Player(9), Player(0), ALLIANCE_SHARED_VISION, true )
-    call SetPlayerState( Player(0), PLAYER_STATE_ALLIED_VICTORY, 1 )
-    call SetPlayerState( Player(9), PLAYER_STATE_ALLIED_VICTORY, 1 )
-    call CoopSetEnemyPair( Player(1) )
-    call CoopSetEnemyPair( Player(3) )
-    call CoopSetEnemyPair( Player(4) )
-    call CoopSetEnemyPair( Player(5) )
-    call CoopSetEnemyPair( Player(6) )
-    call CoopSetEnemyPair( Player(10) )
-    call CoopSetEnemyPair( Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+function CoopApplyHumanPlayerTwoDiplomacy takes nothing returns nothing
+    if ( udg_CoopPlayerTwoHuman ) then
+        call SetPlayerAllianceStateAllyBJ( Player(0), Player(9), true )
+        call SetPlayerAllianceStateAllyBJ( Player(9), Player(0), true )
+        call SetPlayerAlliance( Player(0), Player(9), ALLIANCE_SHARED_VISION, true )
+        call SetPlayerAlliance( Player(9), Player(0), ALLIANCE_SHARED_VISION, true )
+        call SetPlayerState( Player(0), PLAYER_STATE_ALLIED_VICTORY, 1 )
+        call SetPlayerState( Player(9), PLAYER_STATE_ALLIED_VICTORY, 1 )
+        call CoopSetEnemyPair( Player(1) )
+        call CoopSetEnemyPair( Player(3) )
+        call CoopSetEnemyPair( Player(4) )
+        call CoopSetEnemyPair( Player(5) )
+        call CoopSetEnemyPair( Player(6) )
+        call CoopSetEnemyPair( Player(10) )
+        call CoopSetEnemyPair( Player(PLAYER_NEUTRAL_AGGRESSIVE) )
+    endif
 endfunction
 
 function CoopVictory takes nothing returns nothing
     if ( not udg_CoopResultIssued ) then
         set udg_CoopResultIssued = true
         set udg_GAMEOVER = true
-        call CoopRestoreEnemyDiplomacy(  )
+        call CoopApplyHumanPlayerTwoDiplomacy(  )
         call CustomVictoryBJ( Player(0), false, true )
         if ( udg_CoopPlayerTwoHuman ) then
             call CustomVictoryBJ( Player(9), false, true )
@@ -635,7 +638,7 @@ function CoopDefeat takes string message returns nothing
     if ( not udg_CoopResultIssued ) then
         set udg_CoopResultIssued = true
         set udg_GAMEOVER = true
-        call CoopRestoreEnemyDiplomacy(  )
+        call CoopApplyHumanPlayerTwoDiplomacy(  )
         call CustomDefeatBJ( Player(0), message )
         if ( udg_CoopPlayerTwoHuman ) then
             call CustomDefeatBJ( Player(9), message )
@@ -701,6 +704,80 @@ function CoopSelectStartingHeroes takes nothing returns nothing
     if ( udg_CoopPlayerTwoHuman ) then
         call SelectUnitForPlayerSingle( udg_Jaina, Player(9) )
     endif
+endfunction
+""";
+
+    private const string CoopDifficultyFunctions = """
+//===========================================================================
+// Difficulty selection follows the generated initialization functions.
+//===========================================================================
+function CoopFinishDifficultySelection takes gamedifficulty difficulty returns nothing
+    if ( udg_CoopInitializationStarted ) then
+        return
+    endif
+    set udg_CoopInitializationStarted = true
+    call SetGameDifficulty( difficulty )
+    call PauseTimer( udg_CoopDifficultyTimer )
+    call DialogDisplay( Player(0), udg_CoopDifficultyDialog, false )
+    call DisableTrigger( udg_CoopDifficultyTrigger )
+    call DestroyTrigger( udg_CoopDifficultyTrigger )
+    call DestroyTimer( udg_CoopDifficultyTimer )
+    call DialogClear( udg_CoopDifficultyDialog )
+    call DialogDestroy( udg_CoopDifficultyDialog )
+    set udg_CoopDifficultyTrigger = null
+    set udg_CoopDifficultyTimer = null
+    set udg_CoopDifficultyDialog = null
+    set udg_CoopDifficultyNormal = null
+    set udg_CoopDifficultyHard = null
+    call InitCustomTriggers(  )
+    call CoopConfigurePlayerTwoSystems(  )
+    call RunInitializationTriggers(  )
+endfunction
+
+function CoopChooseDifficulty takes nothing returns nothing
+    if ( GetTriggerEventId() == EVENT_GAME_TIMER_EXPIRED ) then
+        call DisplayTimedTextToPlayer( Player(0), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
+        if ( udg_CoopPlayerTwoHuman ) then
+            call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
+        endif
+        call CoopFinishDifficultySelection( MAP_DIFFICULTY_NORMAL )
+    elseif ( GetClickedButton() == udg_CoopDifficultyHard ) then
+        call DisplayTimedTextToPlayer( Player(0), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_905") )
+        if ( udg_CoopPlayerTwoHuman ) then
+            call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_905") )
+        endif
+        call CoopFinishDifficultySelection( MAP_DIFFICULTY_HARD )
+    else
+        call DisplayTimedTextToPlayer( Player(0), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
+        if ( udg_CoopPlayerTwoHuman ) then
+            call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 5.00, GetLocalizedString("TRIGSTR_904") )
+        endif
+        call CoopFinishDifficultySelection( MAP_DIFFICULTY_NORMAL )
+    endif
+endfunction
+
+function CoopBeginDifficultySelection takes nothing returns nothing
+    call DestroyTimer( udg_CoopDifficultyStartupTimer )
+    set udg_CoopDifficultyStartupTimer = null
+    set udg_CoopDifficultyDialog = DialogCreate()
+    call DialogSetMessage( udg_CoopDifficultyDialog, GetLocalizedString("TRIGSTR_900") )
+    set udg_CoopDifficultyNormal = DialogAddButton( udg_CoopDifficultyDialog, GetLocalizedString("TRIGSTR_901"), 0 )
+    set udg_CoopDifficultyHard = DialogAddButton( udg_CoopDifficultyDialog, GetLocalizedString("TRIGSTR_902"), 0 )
+    set udg_CoopDifficultyTrigger = CreateTrigger()
+    set udg_CoopDifficultyTimer = CreateTimer()
+    call TriggerRegisterDialogEvent( udg_CoopDifficultyTrigger, udg_CoopDifficultyDialog )
+    call TriggerRegisterTimerExpireEvent( udg_CoopDifficultyTrigger, udg_CoopDifficultyTimer )
+    call TriggerAddAction( udg_CoopDifficultyTrigger, function CoopChooseDifficulty )
+    call DialogDisplay( Player(0), udg_CoopDifficultyDialog, true )
+    if ( udg_CoopPlayerTwoHuman ) then
+        call DisplayTimedTextToPlayer( Player(9), 0.00, 0.00, 30.00, GetLocalizedString("TRIGSTR_903") )
+    endif
+    call TimerStart( udg_CoopDifficultyTimer, 30.00, false, null )
+endfunction
+
+function CoopScheduleDifficultySelection takes nothing returns nothing
+    set udg_CoopDifficultyStartupTimer = CreateTimer()
+    call TimerStart( udg_CoopDifficultyStartupTimer, 0.01, false, function CoopBeginDifficultySelection )
 endfunction
 """;
 

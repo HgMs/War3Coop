@@ -7,7 +7,7 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..\..')).Path
 $dotnet = Join-Path $repoRoot 'build\dotnet\dotnet.exe'
 $assembly = Join-Path $repoRoot 'build\wc3-coop-build\publish\wc3-coop-build.dll'
 $sources = Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'src') -Recurse -File |

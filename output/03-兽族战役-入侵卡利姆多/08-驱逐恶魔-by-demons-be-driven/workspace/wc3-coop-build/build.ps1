@@ -4,7 +4,7 @@ param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..\..\..')).Path
 $dotnet = Join-Path $repoRoot 'build\dotnet\dotnet.exe'
 $project = Join-Path $PSScriptRoot 'src\Wc3CoopBuild.Cli\Wc3CoopBuild.Cli.csproj'
 $publish = Join-Path $repoRoot 'build\wc3-coop-build\publish'

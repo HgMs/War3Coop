@@ -3,14 +3,16 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$SourceMap,
 
-    [string]$GamePath
+    [string]$GamePath,
+
+    [string]$PjassPath
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $toolRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-$repoRoot = (Resolve-Path (Join-Path $toolRoot '..\..')).Path
+$repoRoot = (Resolve-Path (Join-Path $toolRoot '..\..\..\..\..')).Path
 $inspect = Join-Path $repoRoot 'tools\wc3-inspect\wc3-inspect.ps1'
 $builder = Join-Path $toolRoot 'wc3-coop-build.ps1'
 $testRoot = Join-Path $repoRoot ('build\test-orc08-' + [guid]::NewGuid().ToString('N'))
@@ -21,10 +23,19 @@ $stringsPath = Join-Path $testRoot 'war3map.wts'
 $sourceUnitDataPath = Join-Path $testRoot 'source-war3map.w3u'
 $generatedUnitDataPath = Join-Path $testRoot 'generated-war3map.w3u'
 $unitBalancePath = Join-Path $testRoot 'UnitBalance.slk'
+$itemDataPath = Join-Path $testRoot 'ItemData.slk'
+$commonJPath = Join-Path $testRoot 'common.j'
+$blizzardJPath = Join-Path $testRoot 'Blizzard.j'
 $war3NetRoot = Join-Path $repoRoot 'build\wc3-coop-build\publish'
 
 if (-not $GamePath) {
     $GamePath = Join-Path $repoRoot 'game\Warcraft3-1.24e'
+}
+if (-not $PjassPath) {
+    $PjassPath = Join-Path $repoRoot 'game\Warcraft III - 1.31\x86\JassHelper\pjass.exe'
+}
+if (-not (Test-Path -LiteralPath $PjassPath -PathType Leaf)) {
+    throw "pjass was not found: $PjassPath"
 }
 
 try {
@@ -44,6 +55,12 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Generated unit object data extraction failed.' }
     & $inspect archive extract (Join-Path $GamePath 'War3Patch.mpq') 'Units\UnitBalance.slk' $unitBalancePath
     if ($LASTEXITCODE -ne 0) { throw '1.24e UnitBalance.slk extraction failed.' }
+    & $inspect archive extract (Join-Path $GamePath 'War3Patch.mpq') 'Units\ItemData.slk' $itemDataPath
+    if ($LASTEXITCODE -ne 0) { throw '1.24e ItemData.slk extraction failed.' }
+    & $inspect archive extract (Join-Path $GamePath 'War3Patch.mpq') 'Scripts\common.j' $commonJPath
+    if ($LASTEXITCODE -ne 0) { throw '1.24e common.j extraction failed.' }
+    & $inspect archive extract (Join-Path $GamePath 'War3Patch.mpq') 'Scripts\Blizzard.j' $blizzardJPath
+    if ($LASTEXITCODE -ne 0) { throw '1.24e Blizzard.j extraction failed.' }
 
     $report = Get-Content -LiteralPath $reportPath -Raw -Encoding UTF8 | ConvertFrom-Json
     $players = @($report.map.players)
@@ -81,6 +98,33 @@ try {
     Add-Type -Path (Join-Path $war3NetRoot 'War3Net.Common.dll')
     Add-Type -Path (Join-Path $war3NetRoot 'War3Net.Build.Core.dll')
     Add-Type -Path (Join-Path $war3NetRoot 'War3Net.IO.Slk.dll')
+
+    $itemDataStream = [System.IO.File]::OpenRead($itemDataPath)
+    try {
+        $itemData = [War3Net.IO.Slk.SylkParser]::new().Parse($itemDataStream, $true)
+    }
+    finally {
+        $itemDataStream.Dispose()
+    }
+    $itemDataHeaders = for ($column = 0; $column -le $itemData.Columns; $column++) {
+        [string]$itemData[$column, 0]
+    }
+    $itemIdColumn = [array]::IndexOf($itemDataHeaders, 'itemID')
+    if ($itemIdColumn -lt 0) { throw 'ItemData.slk is missing itemID.' }
+    $availableItemIds = @{}
+    for ($row = 1; $row -le $itemData.Rows; $row++) {
+        $itemId = [string]$itemData[$itemIdColumn, $row]
+        if ($itemId) { $availableItemIds[$itemId] = $true }
+    }
+    foreach ($itemId in @(
+        'nspi', 'ratc', 'rat9', 'cnob', 'rin1',
+        'ofir', 'bgst', 'ckng', 'rwiz', 'pmna', 'rlif',
+        'hcun', 'ciri', 'gcel', 'bspd', 'gsou', 'soul'
+    )) {
+        if (-not $availableItemIds.ContainsKey($itemId)) {
+            throw "Required 1.24e item rawcode is missing: $itemId"
+        }
+    }
 
     $campaignHeroIds = @('Othr', 'Ocbh', 'Hjai', 'Opgh', 'Ogrh')
     $unitBalanceStream = [System.IO.File]::OpenRead($unitBalancePath)
@@ -145,13 +189,61 @@ try {
     }
 
     $script = Get-Content -LiteralPath $scriptPath -Raw -Encoding UTF8
+    $pjassOutput = & $PjassPath $commonJPath $blizzardJPath $scriptPath 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        throw "Generated script failed 1.24e JASS semantic validation:`n$($pjassOutput -join "`n")"
+    }
+    if ($script.Contains("`r`r`n")) {
+        throw 'Generated script contains invalid CR-CR-LF line endings.'
+    }
+
+    foreach ($fixedRacePlayerId in @(0, 1, 3, 5, 6, 9, 10)) {
+        $fixedRaceCall = "call SetPlayerRaceSelectable( Player($fixedRacePlayerId), false )"
+        $selectableRaceCall = "call SetPlayerRaceSelectable( Player($fixedRacePlayerId), true )"
+        if (([regex]::Matches($script, [regex]::Escape($fixedRaceCall))).Count -ne 1) {
+            throw "Player($fixedRacePlayerId) must have exactly one fixed-race declaration."
+        }
+        if ($script.Contains($selectableRaceCall)) {
+            throw "Player($fixedRacePlayerId) must not remain race-selectable."
+        }
+    }
+
+    $gameCacheMatch = [regex]::Match(
+        $script,
+        'function Trig_Game_Cache_Actions takes nothing returns nothing(?s:.*?)endfunction')
+    if (-not $gameCacheMatch.Success) {
+        throw 'Deterministic hero initialization function is missing.'
+    }
+    $actualLoadout = @(
+        [regex]::Matches(
+            $gameCacheMatch.Value,
+            "call UnitAddItemByIdSwapped\( '([^']+)', udg_(Thrall|Cairne|Jaina) \)") |
+            ForEach-Object { "$($_.Groups[2].Value):$($_.Groups[1].Value)" }
+    )
+    $expectedLoadout = @(
+        'Thrall:nspi', 'Thrall:ratc', 'Thrall:rat9', 'Thrall:cnob', 'Thrall:rin1', 'Thrall:rin1',
+        'Cairne:ofir', 'Cairne:bgst', 'Cairne:ckng', 'Cairne:rwiz', 'Cairne:pmna', 'Cairne:rlif',
+        'Jaina:ckng', 'Jaina:hcun', 'Jaina:ciri', 'Jaina:cnob', 'Jaina:gcel', 'Jaina:bspd'
+    )
+    if (($actualLoadout -join '|') -ne ($expectedLoadout -join '|')) {
+        throw "Unexpected deterministic hero loadout order: $($actualLoadout -join ', ')"
+    }
+
     $required = @(
         'SetPlayerController( Player(9), MAP_CONTROL_USER )',
+        'SetPlayerController( Player(COOP_HUMAN_EXPEDITION_PLAYER_ID), MAP_CONTROL_COMPUTER )',
         'SetPlayerRaceSelectable( Player(0), false )',
+        'SetPlayerRaceSelectable( Player(1), false )',
+        'SetPlayerRaceSelectable( Player(3), false )',
+        'SetPlayerRaceSelectable( Player(5), false )',
+        'SetPlayerRaceSelectable( Player(6), false )',
         'SetPlayerRaceSelectable( Player(9), false )',
+        'SetPlayerRaceSelectable( Player(10), false )',
         'constant integer    COOP_HUMAN_EXPEDITION_PLAYER_ID = 9',
         'function CoopClassifyPlayerTwo takes nothing returns nothing',
         'set udg_CoopPlayerTwoHuman = ( GetPlayerController(Player(COOP_HUMAN_EXPEDITION_PLAYER_ID)) == MAP_CONTROL_USER and GetPlayerSlotState(Player(COOP_HUMAN_EXPEDITION_PLAYER_ID)) == PLAYER_SLOT_STATE_PLAYING )',
+        "call SetPlayerTechMaxAllowed( Player(0), 'Oshd', 0 )",
+        "call SetPlayerTechMaxAllowed( Player(9), 'Hblm', 0 )",
         'function CoopConfigurePlayerTwoSystems takes nothing returns nothing',
         'function CoopStartJainaAI takes nothing returns nothing',
         'call StartCampaignAI( Player(9), "o08_Jaina.ai" )',
@@ -168,7 +260,9 @@ try {
         'call CoopVictory(  )',
         'call CoopDefeat(',
         'call CoopClassifyPlayerTwo(  )',
-        'call CoopBeginDifficultySelection(  )',
+        'call CoopScheduleDifficultySelection(  )',
+        'function CoopBeginDifficultySelection takes nothing returns nothing',
+        'call TimerStart( udg_CoopDifficultyStartupTimer, 0.01, false, function CoopBeginDifficultySelection )',
         'call CoopConfigurePlayerTwoSystems(  )',
         'function CoopFinishDifficultySelection takes gamedifficulty difficulty returns nothing',
         'call SetGameDifficulty( difficulty )',
@@ -179,7 +273,9 @@ try {
         'call SetMapFlag( MAP_ALLIANCE_CHANGES_HIDDEN, false )',
         'call SetMapFlag( MAP_LOCK_RESOURCE_TRADING, false )',
         'call SetMapFlag( MAP_RESOURCE_TRADING_ALLIES_ONLY, true )',
-        'function CoopRestoreEnemyDiplomacy takes nothing returns nothing',
+        'function CoopApplyHumanPlayerTwoDiplomacy takes nothing returns nothing',
+        'call SetPlayerAllianceStateAllyBJ( Player(0), Player(9), true )',
+        'call SetPlayerAllianceStateAllyBJ( Player(9), Player(0), true )',
         'call CoopSetEnemyPair( Player(PLAYER_NEUTRAL_AGGRESSIVE) )',
         'ALLIANCE_SHARED_VISION, true',
         'PLAYER_STATE_ALLIED_VICTORY, 1',
@@ -198,13 +294,23 @@ try {
         'call SelectUnitForPlayerSingle( udg_Jaina, Player(9) )',
         'call PanCameraToTimedLocForPlayer( Player(9), GetRectCenter(gg_rct_JainasTown), 0 )',
         'call PanCameraToTimedLocForPlayer( Player(9), udg_CoopPlayerCameraPosition, 0.00 )',
-        "call UnitAddItemByIdSwapped( 'ckng', udg_Thrall )",
+        "call UnitAddItemByIdSwapped( 'nspi', udg_Thrall )",
         "call UnitAddItemByIdSwapped( 'ratc', udg_Thrall )",
-        "call UnitAddItemByIdSwapped( 'ciri', udg_Thrall )",
-        "call UnitAddItemByIdSwapped( 'nspi', udg_Cairne )",
-        "call UnitAddItemByIdSwapped( 'bgst', udg_Cairne )",
-        "call UnitAddItemByIdSwapped( 'rwiz', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'rat9', udg_Thrall )",
+        "call UnitAddItemByIdSwapped( 'cnob', udg_Thrall )",
+        "call UnitAddItemByIdSwapped( 'rin1', udg_Thrall )",
         "call UnitAddItemByIdSwapped( 'ofir', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'bgst', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'ckng', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'rwiz', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'pmna', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'rlif', udg_Cairne )",
+        "call UnitAddItemByIdSwapped( 'ckng', udg_Jaina )",
+        "call UnitAddItemByIdSwapped( 'hcun', udg_Jaina )",
+        "call UnitAddItemByIdSwapped( 'ciri', udg_Jaina )",
+        "call UnitAddItemByIdSwapped( 'cnob', udg_Jaina )",
+        "call UnitAddItemByIdSwapped( 'gcel', udg_Jaina )",
+        "call UnitAddItemByIdSwapped( 'bspd', udg_Jaina )",
         "call UnitAddItemByIdSwapped( 'gsou', udg_Thrall )",
         'GetPlayerStructureCount(udg_Player, true) <= 0',
         'StartTimerBJ( udg_JainaAssaultTimer, true, 300.00 )',
@@ -250,6 +356,31 @@ try {
         if ($script.Contains($fragment)) { throw "Forbidden wrong-direction fragment remains: $fragment" }
     }
 
+    foreach ($fixedRacePlayerId in @(0, 1, 3, 5, 6, 9, 10)) {
+        $fixedRaceCall = "call SetPlayerRaceSelectable( Player($fixedRacePlayerId), false )"
+        $fixedRaceCount = ([regex]::Matches($script, [regex]::Escape($fixedRaceCall))).Count
+        if ($fixedRaceCount -ne 1) {
+            throw "Expected Player($fixedRacePlayerId) race to be locked exactly once, found $fixedRaceCount."
+        }
+        if ($script.Contains("call SetPlayerRaceSelectable( Player($fixedRacePlayerId), true )")) {
+            throw "Player($fixedRacePlayerId) race remains selectable."
+        }
+    }
+
+    $loadoutFunction = [regex]::Match($script, 'function Trig_Game_Cache_Actions takes nothing returns nothing(?s:.*?)endfunction').Value
+    $actualLoadout = @([regex]::Matches(
+        $loadoutFunction,
+        "call UnitAddItemByIdSwapped\( '([^']+)', udg_(Thrall|Cairne|Jaina) \)"
+    ) | ForEach-Object { "$($_.Groups[2].Value):$($_.Groups[1].Value)" })
+    $expectedLoadout = @(
+        'Thrall:nspi', 'Thrall:ratc', 'Thrall:rat9', 'Thrall:cnob', 'Thrall:rin1', 'Thrall:rin1',
+        'Cairne:ofir', 'Cairne:bgst', 'Cairne:ckng', 'Cairne:rwiz', 'Cairne:pmna', 'Cairne:rlif',
+        'Jaina:ckng', 'Jaina:hcun', 'Jaina:ciri', 'Jaina:cnob', 'Jaina:gcel', 'Jaina:bspd'
+    )
+    if (($actualLoadout -join '|') -ne ($expectedLoadout -join '|')) {
+        throw "Unexpected deterministic hero loadout or order: $($actualLoadout -join ', ')"
+    }
+
     $startAiCount = ([regex]::Matches($script, [regex]::Escape('call StartCampaignAI( Player(9), "o08_Jaina.ai" )'))).Count
     if ($startAiCount -ne 1) { throw "Expected exactly one gated original Jaina AI call, found $startAiCount." }
     $commandAiCount = ([regex]::Matches($script, [regex]::Escape('call CommandAI( Player(9), command, data )'))).Count
@@ -259,10 +390,56 @@ try {
     if ($controllerChecks -ne 1) { throw "Expected one startup controller check, found $controllerChecks." }
     $slotChecks = ([regex]::Matches($script, [regex]::Escape('GetPlayerSlotState(Player(COOP_HUMAN_EXPEDITION_PLAYER_ID))'))).Count
     if ($slotChecks -ne 1) { throw "Expected one startup slot-state check, found $slotChecks." }
+    $emptySlotControllerFallbacks = ([regex]::Matches($script, [regex]::Escape('call SetPlayerController( Player(COOP_HUMAN_EXPEDITION_PLAYER_ID), MAP_CONTROL_COMPUTER )'))).Count
+    if ($emptySlotControllerFallbacks -ne 1) { throw "Expected one computer-controller fallback for non-human player 2 starts, found $emptySlotControllerFallbacks." }
     $allControllerChecks = ([regex]::Matches($script, 'GetPlayerController\(')).Count
     if ($allControllerChecks -ne 1) { throw "Expected no controller checks after startup classification, found $allControllerChecks total." }
     $allSlotChecks = ([regex]::Matches($script, 'GetPlayerSlotState\(')).Count
     if ($allSlotChecks -ne 1) { throw "Expected no slot-state checks after startup classification, found $allSlotChecks total." }
+
+    $humanDiplomacy = [regex]::Match($script, 'function CoopApplyHumanPlayerTwoDiplomacy takes nothing returns nothing(?s:.*?)endfunction').Value
+    if (-not $humanDiplomacy.Contains("if ( udg_CoopPlayerTwoHuman ) then")) {
+        throw 'Cooperative diplomacy overrides must be gated by the fixed active-human startup mode.'
+    }
+    foreach ($fragment in @(
+        'call SetPlayerAllianceStateAllyBJ( Player(0), Player(9), true )',
+        'call SetPlayerAllianceStateAllyBJ( Player(9), Player(0), true )',
+        'call CoopSetEnemyPair( Player(1) )',
+        'call CoopSetEnemyPair( Player(PLAYER_NEUTRAL_AGGRESSIVE) )'
+    )) {
+        $gateIndex = $humanDiplomacy.IndexOf('if ( udg_CoopPlayerTwoHuman ) then')
+        $fragmentIndex = $humanDiplomacy.IndexOf($fragment)
+        if ($fragmentIndex -lt $gateIndex) {
+            throw "Diplomacy override is outside the active-human gate: $fragment"
+        }
+    }
+    foreach ($sharedControlReset in @(
+        'call SetPlayerAllianceStateBJ( Player(0), Player(9), bj_ALLIANCE_ALLIED )',
+        'call SetPlayerAllianceStateBJ( Player(9), Player(0), bj_ALLIANCE_ALLIED )'
+    )) {
+        if ($humanDiplomacy.Contains($sharedControlReset)) {
+            throw "Cooperative diplomacy must not reset player-granted shared control: $sharedControlReset"
+        }
+    }
+    foreach ($heroRestriction in @(
+        "call SetPlayerTechMaxAllowed( Player(0), 'Oshd', 0 )",
+        "call SetPlayerTechMaxAllowed( Player(9), 'Hblm', 0 )"
+    )) {
+        $restrictionCount = ([regex]::Matches($script, [regex]::Escape($heroRestriction))).Count
+        if ($restrictionCount -ne 1) {
+            throw "Expected one Frozen Throne hero restriction, found ${restrictionCount}: $heroRestriction"
+        }
+    }
+    $friendsForever = [regex]::Match($script, 'function Trig_Friends_Forever_Actions takes nothing returns nothing(?s:.*?)endfunction').Value
+    foreach ($originalAiDiplomacy in @(
+        'call SetPlayerAllianceStateBJ( Player(9), Player(1), bj_ALLIANCE_NEUTRAL )',
+        'call SetPlayerAllianceStateBJ( Player(PLAYER_NEUTRAL_AGGRESSIVE), Player(9), bj_ALLIANCE_ALLIED )',
+        'call SetPlayerAllianceStateBJ( Player(9), Player(PLAYER_NEUTRAL_AGGRESSIVE), bj_ALLIANCE_ALLIED )'
+    )) {
+        if (-not $friendsForever.Contains($originalAiDiplomacy)) {
+            throw "Original AI-mode diplomacy must remain present: $originalAiDiplomacy"
+        }
+    }
     $structureChecks = ([regex]::Matches($script, [regex]::Escape('GetPlayerStructureCount(udg_Player, true) <= 0'))).Count
     if ($structureChecks -ne 1) { throw "Expected the original Player 1 structure-loss condition exactly once, found $structureChecks." }
     $soulGemAdds = ([regex]::Matches($script, [regex]::Escape("call UnitAddItemByIdSwapped( 'gsou', udg_Thrall )"))).Count
@@ -298,16 +475,30 @@ try {
     if ($mainFunction.Contains('call InitCustomTriggers(  )') -or $mainFunction.Contains('call RunInitializationTriggers(  )')) {
         throw 'Original trigger initialization must remain deferred until difficulty selection finishes.'
     }
+    if (-not $mainFunction.Contains('call CoopScheduleDifficultySelection(  )') -or $mainFunction.Contains('call CoopBeginDifficultySelection(  )')) {
+        throw 'main must schedule the difficulty dialog after initialization instead of displaying it immediately.'
+    }
     $difficultyFinish = [regex]::Match($script, 'function CoopFinishDifficultySelection takes gamedifficulty difficulty returns nothing(?s:.*?)endfunction').Value
     if ($difficultyFinish.IndexOf('call SetGameDifficulty( difficulty )') -gt $difficultyFinish.IndexOf('call InitCustomTriggers(  )')) {
         throw 'Game difficulty must be set before original triggers are initialized.'
     }
+    $difficultyFinishIndex = $script.IndexOf('function CoopFinishDifficultySelection takes gamedifficulty difficulty returns nothing')
+    foreach ($dependency in @(
+        'function CoopConfigurePlayerTwoSystems takes nothing returns nothing',
+        'function InitCustomTriggers takes nothing returns nothing',
+        'function RunInitializationTriggers takes nothing returns nothing'
+    )) {
+        $dependencyIndex = $script.IndexOf($dependency)
+        if ($dependencyIndex -lt 0 -or $dependencyIndex -gt $difficultyFinishIndex) {
+            throw "Difficulty selection references a function before it is declared: $dependency"
+        }
+    }
 
     $stringsBytes = [System.IO.File]::ReadAllBytes($stringsPath)
-    if ($stringsBytes.Length -lt 3 -or $stringsBytes[0] -ne 0xEF -or $stringsBytes[1] -ne 0xBB -or $stringsBytes[2] -ne 0xBF) {
-        throw 'war3map.wts must preserve the original UTF-8 BOM for classic-client Chinese text.'
+    if ($stringsBytes.Length -ge 3 -and $stringsBytes[0] -eq 0xEF -and $stringsBytes[1] -eq 0xBB -and $stringsBytes[2] -eq 0xBF) {
+        throw 'war3map.wts must be UTF-8 without BOM for the 1.24e client.'
     }
-    $strictUtf8 = [System.Text.UTF8Encoding]::new($true, $true)
+    $strictUtf8 = [System.Text.UTF8Encoding]::new($false, $true)
     $strings = $strictUtf8.GetString($stringsBytes)
     foreach ($text in @('选择难度', '普通', '困难', '正在等待玩家 1 选择难度')) {
         if (-not $strings.Contains($text)) { throw "Missing localized difficulty text: $text" }

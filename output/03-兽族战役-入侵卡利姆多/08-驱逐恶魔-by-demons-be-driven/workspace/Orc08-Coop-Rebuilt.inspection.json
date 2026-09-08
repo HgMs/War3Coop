@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "source": {
+    "path": "D:\\War3Coop\\output\\03-\u517D\u65CF\u6218\u5F79-\u5165\u4FB5\u5361\u5229\u59C6\u591A\\08-\u9A71\u9010\u6076\u9B54-by-demons-be-driven\\workspace\\Orc08-Coop-Development.w3x",
+    "size": 272662,
+    "sha256": "8F34AA11BCDD235176E31C80BC4A8C9669EEB0DF063B122B9DC9350B29B6420B"
+  },
+  "map": {
+    "format_version": 18,
+    "map_version": 797,
+    "editor_version": "v4448",
+    "declared_game_version": null,
+    "name": "\u9A71\u9010\u6076\u9B54 - \u53CC\u4EBA\u5408\u4F5C\u5F00\u53D1\u7248",
+    "author": "\u66B4\u96EA\u5A31\u4E50",
+    "description": "\u73A9\u5BB61\u63A7\u5236\u5B8C\u6574\u517D\u4EBA\u90E8\u843D\uFF1B\u73A9\u5BB62\u53EF\u63A5\u7BA1\u5409\u5B89\u5A1C\u7684\u4EBA\u7C7B\u63A2\u9669\u961F\u3002",
+    "recommended_players": "2",
+    "loading_screen": {
+      "title": "\u7B2C\u516B\u7AE0",
+      "subtitle": "\u9A71\u9010\u9B54\u9B3C\u7684\u65F6\u523B",
+      "text": "\u4E09\u5929\u540E\uFF0C\u5728\u8352\u91CE\u7684\u8FB9\u7F18\u2026\u2026"
+    },
+    "raw_strings": {
+      "name": "\u9A71\u9010\u6076\u9B54 - \u53CC\u4EBA\u5408\u4F5C\u5F00\u53D1\u7248",
+      "author": "TRIGSTR_003",
+      "description": "\u73A9\u5BB61\u63A7\u5236\u5B8C\u6574\u517D\u4EBA\u90E8\u843D\uFF1B\u73A9\u5BB62\u53EF\u63A5\u7BA1\u5409\u5B89\u5A1C\u7684\u4EBA\u7C7B\u63A2\u9669\u961F\u3002",
+      "recommended_players": "2",
+      "loading_screen_text": "TRIGSTR_006",
+      "loading_screen_title": "TRIGSTR_004",
+      "loading_screen_subtitle": "TRIGSTR_005"
+    },
+    "width": 116,
+    "height": 148,
+    "flags": "HideMinimapInPreviewScreens, PlayableMapSizeWasLarge, FixedPlayerSettingsForCustomForces, UseCustomForces, UseCustomTechtree, UseCustomUpgrades, HasMapPropertiesMenuBeenOpened, ShowWaterWavesOnCliffShores",
+    "flags_value": 3817,
+    "tileset": "Barrens",
+    "script_language": "Jass",
+    "players": [
+      {
+        "id": 0,
+        "name": "\u517D\u4EBA\u90E8\u843D",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 1,
+        "name": "\u6218\u6B4C\u90E8\u843D",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 3,
+        "name": "\u6218\u6B4C\u90E8\u843D",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 5,
+        "name": "\u71C3\u70E7\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 6,
+        "name": "\u71C3\u70E7\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 7,
+        "name": "\u4EBA\u7C7B\u63A2\u9669\u961F",
+        "controller": "Neutral",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 9,
+        "name": "\u4EBA\u7C7B\u63A2\u9669\u961F",
+        "controller": "User",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 10,
+        "name": "\u6218\u6B4C\u90E8\u843D",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      }
+    ],
+    "forces": [
+      {
+        "name": "\u517D\u4EBA\u90E8\u843D"
+      },
+      {
+        "name": "\u6218\u6B4C\u90E8\u843D"
+      }
+    ]
+  },
+  "content": {
+    "trigger_string_count": 94,
+    "script_bytes": 301943,
+    "script_function_count": 425,
+    "script_udg_global_count": 55,
+    "unit_count": 291,
+    "doodad_count": 3189,
+    "special_doodad_count": 0,
+    "imported_file_count": null
+  },
+  "warnings": []
+}
