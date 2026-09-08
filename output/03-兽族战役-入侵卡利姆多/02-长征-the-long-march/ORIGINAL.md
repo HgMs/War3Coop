@@ -6,10 +6,15 @@
 - 英文名：The Long March
 - 类型：护送关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-萨尔护送凯恩的牛头人迁徙队伍穿越荒野，保护科多兽商队免遭半人马截击。
+两天后，在贫瘠的荒原上……
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第二章 / 漫长的迁移
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Orc02.w3m`
+- 地图 SHA-256：`CBA780112732B01AE1AA2367C00604C848FF91C2049B4BBD81FCFBF8E34CF6E9`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

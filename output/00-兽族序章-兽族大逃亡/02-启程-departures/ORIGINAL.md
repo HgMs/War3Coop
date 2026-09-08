@@ -6,10 +6,15 @@
 - 英文名：Departures
 - 类型：教程关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-萨尔营救被关押的兽人、集结部落力量并突破人类封锁，为横渡大海做准备。
+三天后，洛丹伦海岸附近......
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第二章 / 启程
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Prologue02.w3m`
+- 地图 SHA-256：`5984A21BF8ED5A43D7E0539D7241A2AFA1F44C99172396F8A7877F4800199341`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

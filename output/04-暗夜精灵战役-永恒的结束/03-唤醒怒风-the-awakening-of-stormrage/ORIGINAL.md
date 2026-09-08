@@ -6,10 +6,15 @@
 - 英文名：The Awakening of Stormrage
 - 类型：标准关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-泰兰德进入沉睡者兽穴，在亡灵逼近之际唤醒玛法里奥·怒风。
+第二天，神圣的神月之林边界附近……
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第三章 / 苏醒的风暴之怒
+- 本地来源：`War3Patch.mpq / Maps\Campaign\NightElf03.w3m`
+- 地图 SHA-256：`2725729F62A2A3F8A2241F3788FC5E8AF934B51DB4EFC3198256480B4F678B93`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

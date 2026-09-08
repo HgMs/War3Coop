@@ -6,10 +6,15 @@
 - 英文名：Blackrock and Roll
 - 类型：标准关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-人族军队建立基地并摧毁黑石氏族营地，阻止兽人以牺牲仪式召唤恶魔。
+20分钟后，在黑石部落村落附近的乌瑟尔营地内...
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第二章 / 黑石部落
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Human02.w3m`
+- 地图 SHA-256：`8D60EF60E4F01FBE98E78816E7737B403C2BD62D3C6974CEDF890F5D160CE17D`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

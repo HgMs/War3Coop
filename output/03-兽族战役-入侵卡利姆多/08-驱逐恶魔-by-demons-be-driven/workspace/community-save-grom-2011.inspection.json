@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "source": {
+    "path": "D:\\coop\\output\\03-\u517D\u65CF\u6218\u5F79-\u5165\u4FB5\u5361\u5229\u59C6\u591A\\08-\u9A71\u9010\u6076\u9B54-by-demons-be-driven\\third-party\\Save-Grom-Hellscream-2011.w3x",
+    "size": 278529,
+    "sha256": "E685BC285F1B80FED5A8D06C557B74D7DAC201A573959801AB6AB41E36EA8053"
+  },
+  "map": {
+    "format_version": 25,
+    "map_version": 811,
+    "editor_version": "v6059",
+    "declared_game_version": null,
+    "name": "Chapter Eight: Driven by Demons",
+    "author": "Blizzard Entertainment(multy)",
+    "description": "Chapter Eight: Driven by Demons\r\nItalian Dialogues.(my Version)\r\nTake From Orc Campaign.",
+    "recommended_players": "1-2",
+    "loading_screen": {
+      "title": "Capitolo Otto",
+      "subtitle": "Guidato dai Demoni",
+      "text": "Tre giorni pi\u00F9 tardi, vicino ai confini del Barren..."
+    },
+    "raw_strings": {
+      "name": "TRIGSTR_000",
+      "author": "TRIGSTR_003",
+      "description": "TRIGSTR_002",
+      "recommended_players": "TRIGSTR_001",
+      "loading_screen_text": "TRIGSTR_006",
+      "loading_screen_title": "TRIGSTR_004",
+      "loading_screen_subtitle": "TRIGSTR_005"
+    },
+    "width": 116,
+    "height": 148,
+    "flags": "HideMinimapInPreviewScreens, PlayableMapSizeWasLarge, FixedPlayerSettingsForCustomForces, UseCustomForces, UseCustomTechtree, UseCustomUpgrades, HasMapPropertiesMenuBeenOpened, ShowWaterWavesOnCliffShores, RequiresExpansion",
+    "flags_value": 20201,
+    "tileset": "Barrens",
+    "script_language": "Jass",
+    "players": [
+      {
+        "id": 0,
+        "name": "Orda degli Orchi",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 1,
+        "name": "Clan Warsong",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 3,
+        "name": "Clan Warsong",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 5,
+        "name": "Legione Infuocata",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 6,
+        "name": "Legione Infuocata",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 7,
+        "name": "Spedizione Umana",
+        "controller": "Neutral",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 9,
+        "name": "Spedizione Umana",
+        "controller": "User",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 10,
+        "name": "Clan Warsong",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      }
+    ],
+    "forces": [
+      {
+        "name": "Orda degli Orchi"
+      },
+      {
+        "name": "Clan Warsong"
+      }
+    ]
+  },
+  "content": {
+    "trigger_string_count": 90,
+    "script_bytes": 299242,
+    "script_function_count": 405,
+    "script_udg_global_count": 44,
+    "unit_count": 475,
+    "doodad_count": 3189,
+    "special_doodad_count": 0,
+    "imported_file_count": null
+  },
+  "warnings": []
+}

@@ -31,6 +31,7 @@ internal static class InputInspector
         {
             ".w3n" => "campaign",
             ".w3m" or ".w3x" => "map",
+            ".w3v" => "game-cache",
             ".mpq" => "mpq-archive",
             _ => CanOpenAsMpq(path) ? "mpq-archive" : "file",
         };
@@ -59,4 +60,3 @@ internal static class InputInspector
         }
     }
 }
-

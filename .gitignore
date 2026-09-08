@@ -22,19 +22,36 @@ output/**/original/**
 output/**/third-party/**
 !output/**/third-party/.gitkeep
 
+# Reproducible map builds stay local. Editor-owned source maps belong under
+# workspace/source/; release maps remain intentionally trackable.
+output/**/workspace/*.w3m
+output/**/workspace/*.w3x
+output/**/workspace/generated/**
+
 # Local test output
 build/
 dist/
 test-results/
+TestResults/
 logs/
+coverage/
+artifacts/
+
+# Local Warcraft III inspection caches and extracted diagnostic data
+/.wc3-diagnostics/
 
 # Language and build-system outputs
 **/bin/
 **/obj/
+*.trx
+*.coverage
 
 # Tool and operating-system state
 .idea/
 .vscode/
+.vs/
+*.suo
+*.user
 .DS_Store
 Thumbs.db
 desktop.ini

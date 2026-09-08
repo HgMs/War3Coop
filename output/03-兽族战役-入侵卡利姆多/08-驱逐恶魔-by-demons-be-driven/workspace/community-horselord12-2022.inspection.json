@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "source": {
+    "path": "D:\\coop\\output\\03-\u517D\u65CF\u6218\u5F79-\u5165\u4FB5\u5361\u5229\u59C6\u591A\\08-\u9A71\u9010\u6076\u9B54-by-demons-be-driven\\third-party\\Horselord12-Orc08-2022.w3x",
+    "size": 415273,
+    "sha256": "B757C514227AB82536435C1AF9A30196BFBACF121F060BF2977FF68FA7C27CC1"
+  },
+  "map": {
+    "format_version": 25,
+    "map_version": 921,
+    "editor_version": "v6059",
+    "declared_game_version": null,
+    "name": "Orc08",
+    "author": "Blizzard (Edited by Horselord12)",
+    "description": "Chapter Eight: By Demons Be Driven\r\n",
+    "recommended_players": "1-5",
+    "loading_screen": {
+      "title": "Chapter Eight",
+      "subtitle": "By Demons Be Driven",
+      "text": "Three days later, near the edge of the Barrens.\r\nMannoroth arrives to ensure the destruction of the Human and Orc alliance..."
+    },
+    "raw_strings": {
+      "name": "TRIGSTR_000",
+      "author": "TRIGSTR_003",
+      "description": "TRIGSTR_002",
+      "recommended_players": "TRIGSTR_001",
+      "loading_screen_text": "TRIGSTR_006",
+      "loading_screen_title": "TRIGSTR_004",
+      "loading_screen_subtitle": "TRIGSTR_005"
+    },
+    "width": 120,
+    "height": 148,
+    "flags": "ModifyAllyPriorities, PlayableMapSizeWasLarge, FixedPlayerSettingsForCustomForces, UseCustomForces, UseCustomTechtree, UseCustomUpgrades, HasMapPropertiesMenuBeenOpened, ShowWaterWavesOnCliffShores, RequiresExpansion",
+    "flags_value": 20202,
+    "tileset": "Barrens",
+    "script_language": "Jass",
+    "players": [
+      {
+        "id": 0,
+        "name": "Horda Orca",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 1,
+        "name": "Clan Warsong",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 2,
+        "name": "Refuerzos de jaina",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 3,
+        "name": "Clan Warsong",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 4,
+        "name": "La Legion",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 5,
+        "name": "La Legion",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 6,
+        "name": "La Legion",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 7,
+        "name": "Expedicion Humana",
+        "controller": "Neutral",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 8,
+        "name": "Refuerzos de thrall",
+        "controller": "User",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 9,
+        "name": "Expedicion Humano",
+        "controller": "User",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 10,
+        "name": "Clan warsong",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 11,
+        "name": "Jugador 12",
+        "controller": "User",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      }
+    ],
+    "forces": [
+      {
+        "name": "Orcish Horde \u0026 Human Expedition"
+      },
+      {
+        "name": "Warsong Clan"
+      }
+    ]
+  },
+  "content": {
+    "trigger_string_count": 135,
+    "script_bytes": 392224,
+    "script_function_count": 508,
+    "script_udg_global_count": 54,
+    "unit_count": 738,
+    "doodad_count": 3183,
+    "special_doodad_count": 0,
+    "imported_file_count": 10
+  },
+  "warnings": []
+}

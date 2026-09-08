@@ -6,10 +6,15 @@
 - 英文名：Chasing Visions
 - 类型：教程关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-萨尔遵循梦中先知的召唤穿过荒野，在基础移动与战斗训练后与先知会面。
+阿拉奇高地的某处，萨尔，年轻的兽族部落首领从恶梦中醒来。
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第一章 / 追寻先知
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Prologue01.w3m`
+- 地图 SHA-256：`AFA0607B16D090991D303A28EE4A8A0842DAF3E69F8F22EFCE4D956AC02E28DC`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

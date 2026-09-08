@@ -6,10 +6,15 @@
 - 英文名：The Druids Arise
 - 类型：标准关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-玛法里奥与泰兰德深入腐化森林，唤醒德鲁伊并清除阻碍他们集结的敌人。
+两天后，在冬春峡谷深处……
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第四章 / 德鲁伊的回归
+- 本地来源：`War3Patch.mpq / Maps\Campaign\NightElf04.w3m`
+- 地图 SHA-256：`E3E1AC3EEA3ED37FBDF473ABD33E9AAD0883789283F59C1DB351D1EC726FEAF5`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

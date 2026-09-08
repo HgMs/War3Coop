@@ -1,0 +1,1159 @@
+{
+  "schemaVersion": 1,
+  "basis": "Warcraft III local loading-screen fields parsed from official maps; text is preserved verbatim.",
+  "gameVersion": {
+    "label": "1.24e",
+    "build": "1.24.4.6387",
+    "gameDllSha256": "5F7D8B25005BC12F8453839474EB37ADE8869ABA0570EAD2B76B6A7979C904CC",
+    "productVersion": "Version 1.24.4"
+  },
+  "demoCampaign": {
+    "sourceContainer": "Campaigns\\DemoCampaign.w3n",
+    "sha256": "C8EA1E4D3716935EB208DD124D87EB10ABF85A9889E218711A566D0C09108ED8"
+  },
+  "missions": [
+    {
+      "campaignDirectory": "00-兽族序章-兽族大逃亡",
+      "missionDirectory": "01-追寻幻象-chasing-visions",
+      "number": "第01章",
+      "titleZh": "追寻幻象",
+      "titleEn": "Chasing Visions",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Prologue01.w3m",
+      "sourceSha256": "AFA0607B16D090991D303A28EE4A8A0842DAF3E69F8F22EFCE4D956AC02E28DC",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "追寻先知",
+        "text": "阿拉奇高地的某处，萨尔，年轻的兽族部落首领从恶梦中醒来。"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "00-兽族序章-兽族大逃亡",
+      "missionDirectory": "02-启程-departures",
+      "number": "第02章",
+      "titleZh": "启程",
+      "titleEn": "Departures",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Prologue02.w3m",
+      "sourceSha256": "5984A21BF8ED5A43D7E0539D7241A2AFA1F44C99172396F8A7877F4800199341",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "启程",
+        "text": "三天后，洛丹伦海岸附近......"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "00-兽族序章-兽族大逃亡",
+      "missionDirectory": "03-风暴骑士-riders-on-the-storm",
+      "number": "第03章",
+      "titleZh": "风暴骑士",
+      "titleEn": "Riders on the Storm",
+      "sourceContainer": "Campaigns\\DemoCampaign.w3n",
+      "sourceEntry": "Demo03.w3m",
+      "sourceSha256": "CA915AC8D941B15E9F895A1BC0AF6A78E1BBF67E74B4A540DA63E9EAEA04C1EB",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "风暴骑士",
+        "text": "在萨尔和他的同伴乘坐偷来的船只出发前往卡利姆多的路途中，他们遭遇到了一场猛烈的风暴。为了防止船只被风暴刮沉，萨尔命令所有的船只前去附近的小岛寻求避难。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "00-兽族序章-兽族大逃亡",
+      "missionDirectory": "04-地底的火焰-the-fires-down-below",
+      "number": "第04章",
+      "titleZh": "地底的火焰",
+      "titleEn": "The Fires Down Below",
+      "sourceContainer": "Campaigns\\DemoCampaign.w3n",
+      "sourceEntry": "Demo04.w3m",
+      "sourceSha256": "1419AECBD3A5B2043B3D1F13E50003C2B24225489D61A789065215E2CC62B9F7",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "降落的火焰",
+        "text": "萨尔发现自己处于了一个地下的巢穴，被两栖鱼人单独囚禁了起来。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "00-兽族序章-兽族大逃亡",
+      "missionDirectory": "05-灭绝倒计时-countdown-to-extinction",
+      "number": "第05章",
+      "titleZh": "灭绝倒计时",
+      "titleEn": "Countdown to Extinction",
+      "sourceContainer": "Campaigns\\DemoCampaign.w3n",
+      "sourceEntry": "Demo05.w3m",
+      "sourceSha256": "9A8B07F228FF5AB661E045168F68CB502011010C5B02C3EB4F922A72723EEB5B",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "灭亡倒计时",
+        "text": "在萨尔和他的同伴逃离地下巢穴，来到久违了的地面的时候，迎接他们的是无比灿烂的阳光。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "01-斯坦恩布莱德保卫战-the-defense-of-strahnbrad",
+      "number": "第01章",
+      "titleZh": "斯坦恩布莱德保卫战",
+      "titleEn": "The Defense of Strahnbrad",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human01.w3m",
+      "sourceSha256": "641A31E689AD9381E84DE5CF748857CB72F5F78F6077621F572987A8ECC1C081",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "斯坦博立德保卫战",
+        "text": "由于洛丹伦王国南部的兽人暴动，不得不使人类同盟采取最后的手段进行镇压。国王泰瑞纳斯派出了王国中最优秀的圣骑士以遏制兽人不断的侵扰。一个是他的儿子－王子阿尔赛斯；以及传奇英雄－光明使者乌瑟尔。希望依靠他们的力量终结这次王国的危机。"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "02-黑石氏族-blackrock-and-roll",
+      "number": "第02章",
+      "titleZh": "黑石氏族",
+      "titleEn": "Blackrock and Roll",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human02.w3m",
+      "sourceSha256": "8D60EF60E4F01FBE98E78816E7737B403C2BD62D3C6974CEDF890F5D160CE17D",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "黑石部落",
+        "text": "20分钟后，在黑石部落村落附近的乌瑟尔营地内..."
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "03-肆虐的瘟疫-ravages-of-the-plague",
+      "number": "第03章",
+      "titleZh": "肆虐的瘟疫",
+      "titleEn": "Ravages of the Plague",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human03.w3m",
+      "sourceSha256": "B42D2D285B074035F0492A7C9437BA141820D4E25376616A04E7532E0E60DBA7",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "肆虐的瘟疫",
+        "text": "阿特里克，三天后，阿尔赛斯和他的随行人员在国王之道附近等待着。"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "04-诅咒教派-the-cult-of-the-damned",
+      "number": "第04章",
+      "titleZh": "诅咒教派",
+      "titleEn": "The Cult of the Damned",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human04.w3m",
+      "sourceSha256": "AFC77E6AFA632EA23F3F74DC85C7CED1B57AEA11017AA09C613B4D106A9DDD1C",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "诅咒之教",
+        "text": "第二天，在安道而的郊外..."
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "05-逼近的灾难-march-of-the-scourge",
+      "number": "第05章",
+      "titleZh": "逼近的灾难",
+      "titleEn": "March of the Scourge",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human05.w3m",
+      "sourceSha256": "CA4421CB7BBCBD4CE642374C550A3D6369C68D169870AAD2211D8F8314A49277",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "逼进的灾难",
+        "text": "第二天早晨，阿尔赛斯和吉安娜来到了赫斯格林郊外。"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "06-抉择-the-culling",
+      "number": "第06章",
+      "titleZh": "抉择",
+      "titleEn": "The Culling",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human06.w3m",
+      "sourceSha256": "D726DA487992DDA8923EBF9C5FD95AA21C67EDA425123F6EF64A0DB02D94B076",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "屠杀竞赛",
+        "text": "第二天早上，在萨司奥勒坶郊外..."
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "07-诺森德海岸-the-shores-of-northrend",
+      "number": "第07章",
+      "titleZh": "诺森德海岸",
+      "titleEn": "The Shores of Northrend",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human07.w3m",
+      "sourceSha256": "C4DFD56B33C67E5A1C9B095A1D76E8EDCE9D11D6797110CD527324912194646D",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第七章",
+        "subtitle": "诺森德海岸",
+        "text": "一个月后，在迪格凯普湾的冰封岸边..."
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "08-分歧-dissension",
+      "number": "第08章",
+      "titleZh": "分歧",
+      "titleEn": "Dissension",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human08.w3m",
+      "sourceSha256": "032CBE1F2C7D33F2CEC1EDE06C97FD8EB5E0925E8ED14129AFF928C6ACBE8684",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第八章",
+        "subtitle": "分歧",
+        "text": "第二天早上，阿尔赛斯的新基地中"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "01-人族战役-洛丹伦大陆的灾难",
+      "missionDirectory": "09-霜之哀伤-frostmourne",
+      "number": "第09章",
+      "titleZh": "霜之哀伤",
+      "titleEn": "Frostmourne",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Human09.w3m",
+      "sourceSha256": "1A974F53746471B1CAA297AAA9F12DF1DE1A6147FD0F054DDD032AC10BB8869E",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第九章",
+        "subtitle": "霜之哀伤",
+        "text": "第二天，在阿尔赛斯的主基地..."
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "01-灰烬中的跋涉-trudging-through-the-ashes",
+      "number": "第01章",
+      "titleZh": "灰烬中的跋涉",
+      "titleEn": "Trudging through the Ashes",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead01.w3m",
+      "sourceSha256": "3DC07596CD9554862498836ABA152D9E4C35A0E8FA017201CEB5C8E95099DB64",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "灰烬中的跋涉",
+        "text": "巫妖王的瘟疫已经传遍了整个都城，并且在向洛丹伦的外部扩散。洛丹伦各处的部队都对被国王的死感到震惊和痛惜，他们被贪婪的亡灵族部队分割在各地。现在，洛丹伦只是他曾经的光辉的一个空虚残壳罢了 --而阿尔赛斯王子仍然不知道在哪里..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "02-掘尸还魂-digging-up-the-dead",
+      "number": "第02章",
+      "titleZh": "掘尸还魂",
+      "titleEn": "Digging up the Dead",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead02.w3m",
+      "sourceSha256": "CD310F0427AEB36A24D26D9D99978B80CB775554064CD89AC7C388DDDDED9B83",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "掘尸人",
+        "text": "第二天早上，在安道而郊外..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "03-进入永恒之境-into-the-realm-eternal",
+      "number": "第03章",
+      "titleZh": "进入永恒之境",
+      "titleEn": "Into the Realm Eternal",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead03.w3m",
+      "sourceSha256": "EEB5FB3497418C7D3488AE55C8E6C05621214A955DAFE930067B973AD4527957",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "进入永恒之境",
+        "text": "六天之后，在奎尔萨拉斯森林边境附近..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "04-三合月匙-key-of-the-three-moons",
+      "number": "第04章",
+      "titleZh": "三合月匙",
+      "titleEn": "Key of the Three Moons",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead04.w3m",
+      "sourceSha256": "1F3588496DEB2434A91F2945D2A608F3DE7D70DF4A979E3745B9A4C304F81324",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "月之钥",
+        "text": "过了一会，在破碎的精灵之门后边..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "05-银月城的陷落-the-fall-of-silvermoon",
+      "number": "第05章",
+      "titleZh": "银月城的陷落",
+      "titleEn": "The Fall of Silvermoon",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead05.w3m",
+      "sourceSha256": "6C676CE36A4644F9816B1E8EB96E36A03652434B4CD2DE16713CB9EA4364C8B9",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "银月城的陷落",
+        "text": "过了一会，在精灵国的首都银月城的郊外..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "06-再会黑石氏族-blackrock-and-roll-too",
+      "number": "第06章",
+      "titleZh": "再会黑石氏族",
+      "titleEn": "Blackrock & Roll, Too!",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead06.w3m",
+      "sourceSha256": "8DA4D18BF97CDF112B7316A38EB692C7AA7CE643C8DF7F5EE9CB8A5E5C1562E9",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "黑石部落 II",
+        "text": "第二天早上，在黑石部落村庄外..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "07-围攻达拉然-the-siege-of-dalaran",
+      "number": "第07章",
+      "titleZh": "围攻达拉然",
+      "titleEn": "The Siege of Dalaran",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead07.w3m",
+      "sourceSha256": "E41F8C2045E667EB6C8A47F3830608AF22C06F82C20EB138432702DBECA09A5D",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第七章",
+        "subtitle": "达拉然攻城战",
+        "text": "第二天早上，在达拉然的城门..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "02-不死族战役-诅咒之路",
+      "missionDirectory": "08-在燃烧的天空下-under-the-burning-sky",
+      "number": "第08章",
+      "titleZh": "在燃烧的天空下",
+      "titleEn": "Under the Burning Sky",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Undead08.w3m",
+      "sourceSha256": "1476F191939ADF8FB7F82586011128FDF792BFCD6904B36ABF16F3413569105F",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第八章",
+        "subtitle": "在燃烧的天空下",
+        "text": "一小时后，在一个俯视达拉然的山顶上..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "01-登陆-landfall",
+      "number": "第01章",
+      "titleZh": "登陆",
+      "titleEn": "Landfall",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc01.w3m",
+      "sourceSha256": "00102C4A10787A3868DB4F97EF6086C410157C7DE12CA1EA2D04CDAEC401E8EE",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "登岸",
+        "text": "在神秘预言者的指引下，萨尔带领他的部族开始横渡大海。在凶猛的海浪中渡过几个星期后，兽人部落终于在卡利姆多的一个荒蛮海岸登陆。因窃来的船只已毁坏沉没，兽人们小心地向内陆探索，在这块巨大荒原的峭壁上，他们时刻警惕着潜伏的危险……"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "02-长征-the-long-march",
+      "number": "第02章",
+      "titleZh": "长征",
+      "titleEn": "The Long March",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc02.w3m",
+      "sourceSha256": "CBA780112732B01AE1AA2367C00604C848FF91C2049B4BBD81FCFBF8E34CF6E9",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "漫长的迁移",
+        "text": "两天后，在贫瘠的荒原上……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "03-战歌的怒吼-cry-of-the-warsong",
+      "number": "第03章",
+      "titleZh": "战歌的怒吼",
+      "titleEn": "Cry of the Warsong",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc03.w3m",
+      "sourceSha256": "84ADDFD4D347B2A0A89947F47680CA4D968C8FB1DB3E649515C22CE3A659F239",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "战歌部落的呐喊",
+        "text": "五天后，石爪山山麓附近……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "04-灰谷幽灵-the-spirits-of-ashenvale",
+      "number": "第04章",
+      "titleZh": "灰谷幽灵",
+      "titleEn": "The Spirits of Ashenvale",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc04.w3m",
+      "sourceSha256": "14A10FBD32D5CC759AEDAF1A39C6C530CCB2CD6531C3EB6F283EC3E09B043087",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "灰树山谷的精灵",
+        "text": "两天后，在灰树山谷的边界……"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "05-暗影猎手-the-hunter-of-shadows",
+      "number": "第05章",
+      "titleZh": "暗影猎手",
+      "titleEn": "The Hunter of Shadows",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc05.w3m",
+      "sourceSha256": "FCFCDBD3D27D7221A7C6A6D75A07C5B3C3DA812986CEC854E6346BD2DDC52BD9",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "阴影中的猎人",
+        "text": "第二天早晨，在灰树山谷荫翳的树林中……"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "06-双足飞龙-where-wyverns-dare",
+      "number": "第06章",
+      "titleZh": "双足飞龙",
+      "titleEn": "Where Wyverns Dare",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc06.w3m",
+      "sourceSha256": "4E820B1DEAD73F4125D6805A66BDDF5014FCA2AFB71CD1261AC84A9999AC3798",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "寻找双足飞龙",
+        "text": "与此同时，在石爪峰山麓附近……"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "07-神谕-the-oracle",
+      "number": "第07章",
+      "titleZh": "神谕",
+      "titleEn": "The Oracle",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc07.w3m",
+      "sourceSha256": "BCD41EFFF124DE21175713DD33F1748634578B6EDAF07F16D21AEC11CFF9DB72",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第七章",
+        "subtitle": "圣者",
+        "text": "二十分钟后，在石爪峰洞穴中……"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "03-兽族战役-入侵卡利姆多",
+      "missionDirectory": "08-驱逐恶魔-by-demons-be-driven",
+      "number": "第08章",
+      "titleZh": "驱逐恶魔",
+      "titleEn": "By Demons Be Driven",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\Orc08.w3m",
+      "sourceSha256": "DE602748F1F24CE5137790A50BDB2805527622272879723AEBDADD759FEF9AB7",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第八章",
+        "subtitle": "驱逐魔鬼的时刻",
+        "text": "三天后，在荒野的边缘……"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "01-门口的敌人-enemies-at-the-gate",
+      "number": "第01章",
+      "titleZh": "门口的敌人",
+      "titleEn": "Enemies at the Gate",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf01.w3m",
+      "sourceSha256": "7EDC5893E51F375FD18B4571D96A7EDE9508B628AA7BCEEBFADC262635E3ACCF",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "兵临城下",
+        "text": "随着格罗姆·地狱咆哮的英勇牺牲，魔王玛诺洛斯被杀死了，兽人们摆脱了世代以来魔鬼的诅咒。\r\n\r\n然而就在人类和兽人联军向灰树山谷森林深处探索，以查明恶魔是否在这片土地上游荡时，暗夜精灵哨兵部队的指挥官，泰兰德·风语者确信，这些入侵者只能给她的魔力家园带来毁灭。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "02-月之女儿-daughters-of-the-moon",
+      "number": "第02章",
+      "titleZh": "月之女儿",
+      "titleEn": "Daughters of the Moon",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf02.w3m",
+      "sourceSha256": "A5A366B605747A62DC13DE3DA0B5E9E366BDB0F2B69AEBA173E5E65993130686",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "月亮的女儿",
+        "text": "三小时后，海加尔山山麓某处……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "03-唤醒怒风-the-awakening-of-stormrage",
+      "number": "第03章",
+      "titleZh": "唤醒怒风",
+      "titleEn": "The Awakening of Stormrage",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf03.w3m",
+      "sourceSha256": "2725729F62A2A3F8A2241F3788FC5E8AF934B51DB4EFC3198256480B4F678B93",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "苏醒的风暴之怒",
+        "text": "第二天，神圣的神月之林边界附近……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "04-德鲁伊的崛起-the-druids-arise",
+      "number": "第04章",
+      "titleZh": "德鲁伊的崛起",
+      "titleEn": "The Druids Arise",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf04.w3m",
+      "sourceSha256": "E3E1AC3EEA3ED37FBDF473ABD33E9AAD0883789283F59C1DB351D1EC726FEAF5",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "德鲁伊的回归",
+        "text": "两天后，在冬春峡谷深处……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "05-血缘兄弟-brothers-in-blood",
+      "number": "第05章",
+      "titleZh": "血缘兄弟",
+      "titleEn": "Brothers in Blood",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf05.w3m",
+      "sourceSha256": "919586AD31EF73D0426C9AA21033ABF10FDE3B60B01CCD821035CE224266D4E4",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "浴血的兄弟",
+        "text": "第二天，在海加尔山脉地底洞穴深处……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "06-火焰与悲伤的命运-a-destiny-of-flame-and-sorrow",
+      "number": "第06章",
+      "titleZh": "火焰与悲伤的命运",
+      "titleEn": "A Destiny of Flame and Sorrow",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf06.w3m",
+      "sourceSha256": "9DCEBFA0EE6B2D9A4CA4C008D33E684AB18D485CED7981C3E8F3702695BA17DC",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "火与哀之宿命",
+        "text": "当晚，被污染的费尔晤徳森林深处……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "04-暗夜精灵战役-永恒的结束",
+      "missionDirectory": "07-诸神黄昏-twilight-of-the-gods",
+      "number": "第07章",
+      "titleZh": "诸神黄昏",
+      "titleEn": "Twilight of the Gods",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\Campaign\\NightElf07.w3m",
+      "sourceSha256": "97143C5E8F417DB033B566ED54A2359D6A2BA609F343A3DE79ABADF50A3D1C92",
+      "formatVersion": 18,
+      "loadingScreen": {
+        "title": "第七章",
+        "subtitle": "诸神之黄昏",
+        "text": "第二天造成，海加尔山颠附近\r\n暗夜精灵，兽人和人类集结在一起布置他们的防御……"
+      },
+      "warnings": [
+        "Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion."
+      ]
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "01-娜迦的崛起-rise-of-the-naga",
+      "number": "第01章",
+      "titleZh": "娜迦的崛起",
+      "titleEn": "Rise of the Naga",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX01.w3x",
+      "sourceSha256": "5DBEC2D65C81103361F5286B8AC3EB26119CF7F041D08CECE4F11903E1E461C5",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "娜迦族的崛起",
+        "text": "虽然恶魔首领阿克蒙德和燃烧军团最终在海加尔山战役中被击败，但是白杨谷森林还是遭受到恶魔的侵扰。德鲁伊和精灵哨兵的努力，给北方带来短暂的和平，但是黑暗恶魔依然隐藏在森林深处。在这风雨飘摇的时刻，一位曾经看守尤迪安牢笼的守望者...玛维-影之歌...来到这里搜索她的危险猎物，决心再次将其捕获，并关押在寒冷的大地之下。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "02-破碎之岛-the-broken-isles",
+      "number": "第02章",
+      "titleZh": "破碎之岛",
+      "titleEn": "The Broken Isles",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX02.w3x",
+      "sourceSha256": "A426B49AC5096E0B64E0E562CC69BA7EC8E42A440CA599E75A79D1F428694320",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "破碎之岛",
+        "text": "第二天，在神秘的列岛海岸边，玛维和她的看守者查看了一些古老，却又十分熟悉的废墟。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "03-萨格拉斯之墓-the-tomb-of-sargeras",
+      "number": "第03章",
+      "titleZh": "萨格拉斯之墓",
+      "titleEn": "The Tomb of Sargeras",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX03.w3x",
+      "sourceSha256": "6FED2B2142BFC4485E5450343B7149E8F112434EF44F2AEFC3B0ACFC09F5D862",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "萨格拉斯之墓",
+        "text": "片刻之后，在阴暗的坟墓入口，等待着玛维和她的看守者的是一场埋伏..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "04-背叛者的愤怒-wrath-of-the-betrayer",
+      "number": "第04章",
+      "titleZh": "背叛者的愤怒",
+      "titleEn": "Wrath of the Betrayer",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX04.w3x",
+      "sourceSha256": "00A24E5687F3DF8EFC416823738E3B5C7D594B2BADD14EC81E47B0F6527DB9F4",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "背叛者的愤怒",
+        "text": "数小时后，受着伤痛与疲惫折磨的玛维，蹒跚地回到了她较为安全的基地。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "05-权衡利弊-balancing-the-scales",
+      "number": "第05章",
+      "titleZh": "权衡利弊",
+      "titleEn": "Balancing the Scales",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX05.w3x",
+      "sourceSha256": "90EE3175A8BED3BF4BC98681A50F26F60E9E29FF1DEE16F84D0C46F822581EF7",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "局势的平衡",
+        "text": "第二天，在破碎之岛的海岸边，玛维和她的看守者试图抵挡尤迪安最后的进攻。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "06-破碎联盟-shards-of-the-alliance",
+      "number": "第06章",
+      "titleZh": "破碎联盟",
+      "titleEn": "Shards of the Alliance",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX06.w3x",
+      "sourceSha256": "39ECFE0F10C4E4432516D5101A364713B1893F128D07A7B668F86CEADD0E30B0",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "联盟的破裂",
+        "text": "三天后，在洛丹伦西部海岸，暗夜精灵族部队谨慎的进入影影绰绰的银松森林。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "07-达拉然废墟-the-ruins-of-dalaran",
+      "number": "第07章",
+      "titleZh": "达拉然废墟",
+      "titleEn": "The Ruins of Dalaran",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX07.w3x",
+      "sourceSha256": "D91802ECDCA983CFA59DADFFA272B6BDA678F188CBE78067834E3FF27372926B",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第七章",
+        "subtitle": "达拉然的废墟",
+        "text": "之后的傍晚，在暗夜精灵族基地，玛尔法里奥回来警告玛维和泰兰德，关于他兄弟的危险咒语。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "05-暗夜精灵战役-恐怖之潮",
+      "missionDirectory": "08-怒风兄弟-the-brothers-stormrage",
+      "number": "第08章",
+      "titleZh": "怒风兄弟",
+      "titleEn": "The Brothers Stormrage",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\NightElfX08.w3x",
+      "sourceSha256": "AC942B38F7E7F4C1EDA45DE0512667FAE91E5CD36D902FCBE1C1BBFB96B363E0",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第八章",
+        "subtitle": "兄弟情仇",
+        "text": "数小时后，玛尔法里奥和尤迪安沿着阿里瓦斯河岸，一起寻找泰兰德的踪迹。他们在森林中迅速穿行着，两人的技巧和感觉开始变的协调－这对双生子的意念，就是致力于找到他们挚爱的女祭司。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "01-误解-misconceptions",
+      "number": "第01章",
+      "titleZh": "误解",
+      "titleEn": "Misconceptions",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX01.w3x",
+      "sourceSha256": "0544769275E9FCE5FA91ADAB2FAD5EAA19EFF2BDC4CFD0A716C8BC90891AC662",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "误会",
+        "text": "在加理瑟斯大人的营地中，达拉然边界附近，卡尔赛斯和他的战士带来了坏消息。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "02-黑暗契约-a-dark-covenant",
+      "number": "第02章",
+      "titleZh": "黑暗契约",
+      "titleEn": "A Dark Covenant",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX02.w3x",
+      "sourceSha256": "D123915836F6B370578DEF7AA453338ACDEBA80F598CA2274C974265654BB245",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "黑暗契约",
+        "text": "第二天，在联盟的大本营中，卡尔赛斯王子和他的部下已经准备出发。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "03-达拉然地牢-the-dungeons-of-dalaran",
+      "number": "第03章",
+      "titleZh": "达拉然地牢",
+      "titleEn": "The Dungeons of Dalaran",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX03.w3x",
+      "sourceSha256": "6634FF9B1081A8F18779B52F2B5AFABF3B26BBCACE8DE764310167304413380B",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "达拉然的地牢",
+        "text": "两天后，在魔力屏障下的达拉然地牢，卡尔赛斯和他的血精灵族人在囚室中萎靡不振，等待着不可避免的死刑到来。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "03s-穿越-the-crossing",
+      "number": "隐藏关",
+      "titleZh": "穿越",
+      "titleEn": "The Crossing",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX03Secret.w3x",
+      "sourceSha256": "50F0C89E47148611BCC2C0010B4CBC9B7914F12470C1D02BCB0E4F61352279F8",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "秘密关卡",
+        "subtitle": "十字路口",
+        "text": "片刻之后，结盟的血精灵和娜迦族涌入达拉然的后方巷道..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "04-寻找伊利丹-the-search-for-illidan",
+      "number": "第04章",
+      "titleZh": "寻找伊利丹",
+      "titleEn": "The Search for Illidan",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX04.w3x",
+      "sourceSha256": "F3607B66FE28C8368D99FDDA2FF43B91B6CCB9302EBA001B4E621CF0225663E0",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "搜寻尤迪安",
+        "text": "经过三天毫无结果的搜寻，卡尔赛斯王子和法斯琪女士意识到，他们已经迷失在地狱火半岛贫瘠的荒野之中。 "
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "05-深渊之门-gates-of-the-abyss",
+      "number": "第05章",
+      "titleZh": "深渊之门",
+      "titleEn": "Gates of the Abyss",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX05.w3x",
+      "sourceSha256": "B124F426051A5818BD3A7BA74CAE11A2365D6A63405821EA18BE211F70CC2604",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "深渊之门",
+        "text": "两天后，在边缘之地荒凉的平原上，尤迪安和卡尔赛斯王子准备攻击麦哥瑟里登的空间之门。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "06-血精灵战役-血精灵的诅咒",
+      "missionDirectory": "06-外域之王-lord-of-outland",
+      "number": "第06章",
+      "titleZh": "外域之王",
+      "titleEn": "Lord of Outland",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\HumanX06.w3x",
+      "sourceSha256": "883EAF5F3193DC94BBBCFC05B4D76767CDEF1DAE2A9646F081183C4C6ED435FF",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "边缘之地领主",
+        "text": "在这一天稍后，麦哥瑟里登的黑色城堡基地中，尤迪安指挥他的部队做最后的攻击。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "01-阿尔萨斯国王-king-arthas",
+      "number": "第01章",
+      "titleZh": "阿尔萨斯国王",
+      "titleEn": "King Arthas",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX01.w3x",
+      "sourceSha256": "9BC5F993FFC0DAF099CB4B1013B307962AB16176E3D5A6B17F9A255452133C40",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "阿尔塞斯国王",
+        "text": "在洛丹伦的首都城市，毁坏的宫殿花园附近，阿克蒙德的奴仆－恐惧魔王们，正在讨论着不死族疫军的下一步计划。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "02-洛丹伦的逃亡-the-flight-from-lordaeron",
+      "number": "第02章",
+      "titleZh": "洛丹伦的逃亡",
+      "titleEn": "The Flight from Lordaeron",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX02.w3x",
+      "sourceSha256": "A642D1C059C90BE45A89ABDFE5B686FAF2B7735ABA12A8FC5A39EEBF821A1B39",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第二章",
+        "subtitle": "迁离洛丹伦",
+        "text": "第二天早晨，在宫殿里，阿尔塞斯国王和他的幕僚－克尔苏加德，讨论着巫妖王的恐怖警告。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "03-黑暗女王-the-dark-lady",
+      "number": "第03章",
+      "titleZh": "黑暗女王",
+      "titleEn": "The Dark Lady",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX03.w3x",
+      "sourceSha256": "484556E15A94B5C1981D7EC92E87365AD0C2FDDF867767978CF31064B39C43F6",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第三章",
+        "subtitle": "暗黑女士",
+        "text": "两天后，在瘟疫之地上新建的营地中，西尔瓦娜斯沉思她新得的自由，以及作为受诅咒的不死族...自己的未来。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "04-重返诺森德-the-return-to-northrend",
+      "number": "第04章",
+      "titleZh": "重返诺森德",
+      "titleEn": "The Return to Northrend",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX04.w3x",
+      "sourceSha256": "402DBF267B6C7D133870223C85BD4C81B0CE838D92B88A75A53EDD10D5721DEB",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第四章",
+        "subtitle": "返回诺森德",
+        "text": "三星期后，阿尔塞斯国王的残军在诺森德南部的寒冰海岸下锚。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "05-恐惧魔王的陨落-dreadlords-fall",
+      "number": "第05章",
+      "titleZh": "恐惧魔王的陨落",
+      "titleEn": "Dreadlord's Fall",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX05.w3x",
+      "sourceSha256": "CE1349DB699DC152C215D385B3CF5E7CA5FB438516FBE07259FEC52A8F26F7CF",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第五章",
+        "subtitle": "恐惧魔王的失败",
+        "text": "同一时刻，回到瘟疫之地，西尔瓦娜斯和她忠实的部下，正在计划对恐惧魔王做下一次的攻击。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "06-洛丹伦的新势力-a-new-power-in-lordaeron",
+      "number": "第06章",
+      "titleZh": "洛丹伦的新势力",
+      "titleEn": "A New Power in Lordaeron",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX06.w3x",
+      "sourceSha256": "42B71EB32E54FD2C980477A94195BB7FEEC3F7F3878449B0643D9C3071485C1E",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第六章",
+        "subtitle": "洛丹伦的新势力",
+        "text": "第二天，在洛丹伦首都城市郊外，西尔瓦娜斯和她的盟军准备进攻巴那泽尔的基地。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "07a-进入地下蛛网洞穴-into-the-shadow-web-caverns",
+      "number": "第07章上",
+      "titleZh": "进入地下蛛网洞穴",
+      "titleEn": "Into the Shadow Web Caverns",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX07a.w3x",
+      "sourceSha256": "241B2363C41F3E370603B866893C01F82DE40F56B36BA7C2B08254F1B009518A",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第七章，第一部分",
+        "subtitle": "深入地下蛛网洞穴",
+        "text": "与此同时在诺森德，阿尔塞斯国王和阿诺拉克向黑暗中的艾兹卓-尼拉布遗忘之厅行进。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "07b-被遗忘者-the-forgotten-ones",
+      "number": "第07章中",
+      "titleZh": "被遗忘者",
+      "titleEn": "The Forgotten Ones",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX07b.w3x",
+      "sourceSha256": "372A9380385A1E4A66E866E4E0DFA238B3AB8D7A7DF13C634464D6B2EFCB30C3",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第七章，第二部分",
+        "subtitle": "被遗忘的力量",
+        "text": "片刻之后，在王国内部..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "07c-通往上层王国-ascent-to-the-upper-kingdom",
+      "number": "第07章下",
+      "titleZh": "通往上层王国",
+      "titleEn": "Ascent to the Upper Kingdom",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX07c.w3x",
+      "sourceSha256": "A3DBD4EB62BB7137E6947D2E4EE258BE14DDC5C7B64138C596D0322559B28C8A",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第七章，第三部分",
+        "subtitle": "通往上层王国的通道",
+        "text": "片刻之后，在上层王国的入口..."
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "07-不死族战役-诅咒者的遗物",
+      "missionDirectory": "08-冰与火之协奏曲-a-symphony-of-frost-and-flame",
+      "number": "第08章",
+      "titleZh": "冰与火之协奏曲",
+      "titleEn": "A Symphony of Frost and Flame",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\UndeadX08.w3x",
+      "sourceSha256": "112360618F528B784AA8A4C371A5D547D3632007F23666990BE464DB01193012",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第八章",
+        "subtitle": "火与霜之协奏曲",
+        "text": "片刻之后，在不死族要塞，阿尔塞斯国王和阿诺拉克在研究防守巫妖王的王座密室的最后计划。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "08-兽族额外战役-多洛特的成立",
+      "missionDirectory": "01-征服大地-to-tame-a-land",
+      "number": "第01幕",
+      "titleZh": "征服大地",
+      "titleEn": "To Tame a Land",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\OrcX01.w3x",
+      "sourceSha256": "01651A15E80AD251D1D7E034E55B0E2CEE1F7237E92A9E5FF6EFE83C6F8C6CF6",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第一章",
+        "subtitle": "征服大地",
+        "text": "在海加尔山战役之后的几个月里，兽族酋长萨尔领导着自己的部落返回到了卡利姆多大陆中央的荒芜地带。最终从恶魔的困扰中摆脱出来的兽族非常期盼着自己能在卡利姆多大陆上重新建立起一个属于自己的王国。在荒地东海岸附近匆忙安定下来之后，萨尔给自己的国度起了一个新的名字--多洛特。之所以起这个名字，完全是为了纪念他英雄般的父亲。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "08-兽族额外战役-多洛特的成立",
+      "missionDirectory": "02-古老的憎恨-old-hatreds",
+      "number": "第02幕",
+      "titleZh": "古老的憎恨",
+      "titleEn": "Old Hatreds",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\OrcX02.w3x",
+      "sourceSha256": "D6FD703A915518A2EB169DCD1CB494F58D8E4EBA9C9BE39407E02F9370643D3E",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第二幕",
+        "subtitle": "古老的憎恨",
+        "text": "在泥坑沼泽上时常可以闻到海腥味。黑标部落已经在这里建设了他们的新家园，牛头人族挣脱半人马后也恰好居住在附近的姆尔哥勒。"
+      },
+      "warnings": []
+    },
+    {
+      "campaignDirectory": "08-兽族额外战役-多洛特的成立",
+      "missionDirectory": "03-荣耀之火-a-blaze-of-glory",
+      "number": "第03幕",
+      "titleZh": "荣耀之火",
+      "titleEn": "A Blaze of Glory",
+      "sourceContainer": "War3Patch.mpq",
+      "sourceEntry": "Maps\\FrozenThrone\\Campaign\\OrcX03a.w3x",
+      "sourceSha256": "9DD07906FA7DA45946C94F9D1B02622AAE788BC2A017B91C028219E7C1AC02AF",
+      "formatVersion": 25,
+      "loadingScreen": {
+        "title": "第三幕",
+        "subtitle": "光辉荣耀",
+        "text": "过了一阵，萨尔, 雷克萨和其他兽族部落的斗士们都在海边集合了，准备着这次最后的总攻。"
+      },
+      "warnings": []
+    }
+  ]
+}

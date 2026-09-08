@@ -4,11 +4,14 @@
 
 每个原版可游玩关卡无论当前是否制作多人版，都必须保留关卡目录和说明：
 
-- `ORIGINAL.md`：原版所属版本、章节名、英文名和关卡概述；
+- `ORIGINAL.md`：原版所属版本、章节名、英文名、本地加载界面原文和来源证据；
 - `README.md`：是否列入制作批次以及当前状态。
 
 制作资料目录按需创建，不为暂不制作的关卡预留空目录。关卡列入制作批次后可使用：
 
+- `ORIGINAL_COOP_MECHANICS.md`：官方原版中受多人化影响的机制、证据、负责人逐项决定及最终验收标准；
+- `COMMUNITY_SEARCH.md`：逐站点、逐检索式记录社区搜索结果和检索充分性结论；
+- `SOURCE_EVALUATION.md`：候选硬条件核验、社区/官方两条路线的成本证据和底图决策；
 - `original/`：从合法游戏数据提取的原版地图或对照材料，仅限本地使用；
 - `third-party/`：互联网候选作品及其校验材料，取得与授权核验后方可放入；
 - `workspace/`：当前可编辑工作文件、解包内容和制作记录；
@@ -16,7 +19,13 @@
 
 `original/` 和 `third-party/` 中的外部二进制默认不纳入 Git。许可明确的第三方内容如需提交，应先调整忽略规则并保存授权证据。
 
-战役与关卡清单的单一数据源为 [`docs/campaigns.json`](../docs/campaigns.json)，目录由 [`tools/Initialize-ProjectStructure.ps1`](../tools/Initialize-ProjectStructure.ps1)生成。
+`workspace/` 根目录中的 `.w3m` / `.w3x` 视为可由构建工具重新生成的本地候选，不纳入 Git。若某关改为直接使用 World Editor 维护地图，必须把无法从脚本重建的权威源图放在 `workspace/source/` 并提交；构建脚本、锁定文件、制作记录和必要的检查证据也应提交。这样新开发者只需配置合法游戏本体，即可从仓库内容继续制作并重建待测地图。
+
+完整阶段、产物和退出条件见 [`docs/MAP_PRODUCTION_WORKFLOW.md`](../docs/MAP_PRODUCTION_WORKFLOW.md)。`workspace/` 中的成品实现只能在目标与验收标准确认、聚焦社区检索及必要的首选候选核验完成、没有可直接采用作品、成本报告完成且负责人明确选定路线后开始。只读检查和隔离试验可以先做，但必须与成品工作区分开记录。
+
+进入开发后，`workspace/PLAN.md` 记录开发内容指导和需求追踪，`workspace/TESTING.md` 记录自动验证及待用户实机验证。只有负责人确认验收完成后，才能把与验收 SHA-256 一致的地图和发布说明放入 `release/`。社区作品满足全部条件时走直接采用分支，不创建无意义的自行改造计划；没有再分发许可时只记录原发布页、版本和校验信息。
+
+战役与关卡清单的数据源为 [`docs/campaigns.json`](../docs/campaigns.json)；本地加载界面原文及地图来源记录在 [`docs/original-loading-screens.json`](../docs/original-loading-screens.json)。目录由 [`tools/Initialize-ProjectStructure.ps1`](../tools/Initialize-ProjectStructure.ps1)生成。
 
 ## 第一批制作关卡
 

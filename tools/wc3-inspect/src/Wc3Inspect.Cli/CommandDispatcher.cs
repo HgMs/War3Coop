@@ -11,6 +11,7 @@ Usage:
   wc3-inspect archive extract <archive> <entry> <output-file> [--max-bytes <n>] [--overwrite]
   wc3-inspect map inspect <map.w3m-or-w3x> [--output <report.json>]
   wc3-inspect campaign inspect <campaign.w3n> [--output <report.json>]
+  wc3-inspect gamecache inspect <cache.w3v> [--output <report.json>]
 """;
 
     public static object Run(List<string> arguments)
@@ -27,6 +28,7 @@ Usage:
             "archive" => RunArchive(arguments),
             "map" => RunMap(arguments),
             "campaign" => RunCampaign(arguments),
+            "gamecache" => RunGameCache(arguments),
             _ => throw new CliUsageException($"Unknown command: {arguments[0]}")
         };
     }
@@ -108,6 +110,12 @@ Usage:
         return CampaignInspector.Inspect(arguments[2]);
     }
 
+    private static object RunGameCache(List<string> arguments)
+    {
+        RequireAction(arguments, "inspect");
+        return GameCacheInspector.Inspect(arguments[2]);
+    }
+
     private static void RequireAction(List<string> arguments, string action)
     {
         RequireCount(arguments, 3);
@@ -125,4 +133,3 @@ Usage:
         }
     }
 }
-

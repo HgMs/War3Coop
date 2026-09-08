@@ -6,10 +6,15 @@
 - 英文名：The Shores of Northrend
 - 类型：标准关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-远征军登陆诺森德并建立营地，阿尔萨斯与穆拉丁重逢后共同对抗亡灵。
+一个月后，在迪格凯普湾的冰封岸边...
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第七章 / 诺森德海岸
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Human07.w3m`
+- 地图 SHA-256：`C4DFD56B33C67E5A1C9B095A1D76E8EDCE9D11D6797110CD527324912194646D`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

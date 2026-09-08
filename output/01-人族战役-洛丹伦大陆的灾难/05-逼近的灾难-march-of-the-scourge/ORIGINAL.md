@@ -6,10 +6,15 @@
 - 英文名：March of the Scourge
 - 类型：防守关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-阿尔萨斯与吉安娜坚守壁炉谷，在救援抵达前抵挡亡灵天灾的持续围攻。
+第二天早晨，阿尔赛斯和吉安娜来到了赫斯格林郊外。
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第五章 / 逼进的灾难
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Human05.w3m`
+- 地图 SHA-256：`CA4421CB7BBCBD4CE642374C550A3D6369C68D169870AAD2211D8F8314A49277`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.

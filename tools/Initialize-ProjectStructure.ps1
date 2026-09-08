@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param(
     [switch]$Force
 )
@@ -6,10 +6,11 @@ param(
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $manifestPath = Join-Path $projectRoot 'docs/campaigns.json'
+$loadingScreensPath = Join-Path $projectRoot 'docs/original-loading-screens.json'
 $outputRoot = Join-Path $projectRoot 'output'
 $gameRoot = Join-Path $projectRoot 'game'
 $versions = @(
-    '1.20e',
+    '1.24e',
     '1.31'
 )
 $selectedMissions = [System.Collections.Generic.HashSet[string]]::new(
@@ -56,6 +57,13 @@ foreach ($version in $versions) {
 
 $campaigns = Get-Content -LiteralPath $manifestPath -Raw -Encoding utf8 |
     ConvertFrom-Json
+$loadingScreens = Get-Content -LiteralPath $loadingScreensPath -Raw -Encoding utf8 |
+    ConvertFrom-Json
+$loadingScreenByMission = @{}
+foreach ($record in $loadingScreens.missions) {
+    $key = "$($record.campaignDirectory)/$($record.missionDirectory)"
+    $loadingScreenByMission[$key] = $record
+}
 
 foreach ($campaign in $campaigns) {
     $campaignDirectory = Join-Path $outputRoot $campaign.directory
@@ -87,6 +95,13 @@ foreach ($campaign in $campaigns) {
         $missionKey = "$($campaign.directory)/$($mission.directory)"
         $isSelected = $selectedMissions.Contains($missionKey)
 
+        $loadingScreen = $loadingScreenByMission[$missionKey]
+        $warnings = if ($loadingScreen.warnings.Count -eq 0) {
+            '无'
+        } else {
+            $loadingScreen.warnings -join '；'
+        }
+
         $originalReadme = @(
             "# 原版关卡说明：$($mission.titleZh)",
             '',
@@ -96,13 +111,18 @@ foreach ($campaign in $campaigns) {
             "- 英文名：$($mission.titleEn)",
             "- 类型：$($mission.type)",
             '',
-            '## 关卡概述',
+            '## 本地加载界面原文',
             '',
-            $mission.summary,
+            $loadingScreen.loadingScreen.text.TrimEnd(),
             '',
-            '## 对照状态',
+            '## 核对依据',
             '',
-            '当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。'
+            "- 核对版本：Warcraft III $($loadingScreens.gameVersion.label)（build $($loadingScreens.gameVersion.build)，简体中文本地化）",
+            "- 加载画面标题：$($loadingScreen.loadingScreen.title) / $($loadingScreen.loadingScreen.subtitle)",
+            "- 本地来源：``$($loadingScreen.sourceContainer) / $($loadingScreen.sourceEntry)``",
+            "- 地图 SHA-256：``$($loadingScreen.sourceSha256)``",
+            "- 地图格式版本：$($loadingScreen.formatVersion)",
+            "- 解析警告：$warnings"
         ) -join [Environment]::NewLine
         Write-Utf8File -Path (Join-Path $missionDirectory 'ORIGINAL.md') -Content $originalReadme
 
@@ -117,7 +137,8 @@ foreach ($campaign in $campaigns) {
                 '- 是否纳入多人化：是',
                 '- 当前阶段：待检索候选底图',
                 '- 支持人数：待评估',
-                '- 兼容目标：1.20e-1.27b 必须支持；1.31 尽力支持',
+                '- 兼容目标：1.24e-1.27b 必须支持；1.31 尽力支持',
+                '- 许可要求：底图必须来源可追溯、可审计，并明确允许修改和分发',
                 '',
                 '## 目录',
                 '',
@@ -129,12 +150,91 @@ foreach ($campaign in $campaigns) {
                 '## 验收状态',
                 '',
                 '- [ ] 原版数据核对完成',
-                '- [ ] 社区作品检索与许可核验完成',
-                '- [ ] 多人化方案确定',
-                '- [ ] 1.20e-1.27b 完整回归通过',
+                '- [ ] `COMMUNITY_SEARCH.md` 通过检索充分性门',
+                '- [ ] 所有疑似社区候选完成硬条件核验',
+                '- [ ] `SOURCE_EVALUATION.md` 完成社区候选/官方原图成本比较',
+                '- [ ] 底图路线有证据支持并完成复核',
+                '- [ ] 多人化方案确定并开始制作',
+                '- [ ] 全部可达战役英雄已核对为 0 人口占用',
+                '- [ ] 1.24e-1.27b 完整回归通过',
                 '- [ ] 1.31 兼容性验证完成',
                 '- [ ] 成品与变更说明进入 release/'
             ) -join [Environment]::NewLine
+
+            $communitySearch = @(
+                "# $($mission.titleZh)：社区作品检索记录",
+                '',
+                '- 状态：检索未完成',
+                '- 检索负责人：待填写',
+                '- 检索区间：待填写',
+                '- 最后复查：待填写',
+                '',
+                '## 预先定义的硬条件',
+                '',
+                '- 合作模式与人数：待填写',
+                '- 原版还原要求：遵循本项目 `docs/SCOPE.md`，该关特殊要求待填写',
+                '- 战役英雄人口：全部可达战役英雄的有效人口占用必须为 0',
+                '- 兼容目标：1.24e-1.27b 必须支持；1.31 尽力支持',
+                '- 许可与维护：来源可追溯、可审计，并明确允许修改和分发',
+                '',
+                '## 检索明细',
+                '',
+                '| 日期 | 站点/入口 | 原样检索式与筛选 | 覆盖范围 | 命中与负面结果 |',
+                '| --- | --- | --- | --- | --- |',
+                '| 待填写 | 待填写 | 待填写 | 待填写 | 待填写 |',
+                '',
+                '## 候选闭环',
+                '',
+                '| 独立作品/版本 | 首发页与镜像关系 | 证据 | 状态 |',
+                '| --- | --- | --- | --- |',
+                '| 待填写 | 待填写 | 待填写 | 待核实 |',
+                '',
+                '## 检索充分性',
+                '',
+                '- [ ] Hive Maps、Projects、相关系列/作者页已覆盖',
+                '- [ ] 至少两个独立补充索引已覆盖或失败与替代来源已记录',
+                '- [ ] 关卡名、章节代号、译名、战役名和合作玩法词已组合检索',
+                '- [ ] 所有疑似候选的首发来源、版本链和硬条件均已闭环',
+                '- [ ] 底图决策前 30 天内完成最后复查',
+                '',
+                '## 结论',
+                '',
+                '检索未完成。不得据此进入成品制作。'
+            ) -join [Environment]::NewLine
+            Write-Utf8File -Path (Join-Path $missionDirectory 'COMMUNITY_SEARCH.md') -Content $communitySearch
+
+            $sourceEvaluation = @(
+                "# $($mission.titleZh)：底图来源与成本决策",
+                '',
+                '前置条件：`COMMUNITY_SEARCH.md` 尚未通过检索充分性门。完成前不得作出底图决策。',
+                '',
+                '## 候选硬条件核验',
+                '',
+                '| 候选 | 功能与还原 | 1.24e-1.27b | 可编辑/可审计 | 修改与分发许可 | 结论 |',
+                '| --- | --- | --- | --- | --- | --- |',
+                '| 待填写 | 待核实 | 待核实 | 待核实 | 待核实 | 待核实 |',
+                '',
+                '## 同口径成本比较',
+                '',
+                '| 工作包 | 最佳社区候选：乐观/最可能/悲观 | 官方原图：乐观/最可能/悲观 | 证据与假设 |',
+                '| --- | --- | --- | --- |',
+                '| 取得与授权 | 待评估 | 待评估 | 待填写 |',
+                '| 格式与版本兼容 | 待评估 | 待评估 | 待填写 |',
+                '| 原版还原 | 待评估 | 待评估 | 待填写 |',
+                '| 多人机制 | 待评估 | 待评估 | 待填写 |',
+                '| 脚本与数据维护 | 待评估 | 待评估 | 待填写 |',
+                '| 验证与修复 | 待评估 | 待评估 | 待填写 |',
+                '| 工具与发布 | 待评估 | 待评估 | 待填写 |',
+                '',
+                '## 决策',
+                '',
+                '- 状态：未决策',
+                '- 选择路线：待填写',
+                '- 成本结论与不确定性：待填写',
+                '- 决策日期与复核人：待填写',
+                '- 重新评估触发条件：发现新候选、授权或兼容证据变化、实际成本越界'
+            ) -join [Environment]::NewLine
+            Write-Utf8File -Path (Join-Path $missionDirectory 'SOURCE_EVALUATION.md') -Content $sourceEvaluation
 
             foreach ($subdirectory in @(
                 'original',

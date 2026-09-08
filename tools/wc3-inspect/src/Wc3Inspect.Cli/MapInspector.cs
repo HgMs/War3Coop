@@ -66,7 +66,27 @@ internal static partial class MapInspector
             author = info.MapAuthor,
             description = info.MapDescription,
             recommendedPlayers = info.RecommendedPlayers,
+            loadingScreenText = info.LoadingScreenText,
+            loadingScreenTitle = info.LoadingScreenTitle,
+            loadingScreenSubtitle = info.LoadingScreenSubtitle,
         };
+        if (map.TriggerStrings is { } triggerStrings)
+        {
+            if (triggerStrings.TryGetValue(info.LoadingScreenText, out var loadingScreenText))
+            {
+                info.LoadingScreenText = loadingScreenText;
+            }
+
+            if (triggerStrings.TryGetValue(info.LoadingScreenTitle, out var loadingScreenTitle))
+            {
+                info.LoadingScreenTitle = loadingScreenTitle;
+            }
+
+            if (triggerStrings.TryGetValue(info.LoadingScreenSubtitle, out var loadingScreenSubtitle))
+            {
+                info.LoadingScreenSubtitle = loadingScreenSubtitle;
+            }
+        }
         map.LocalizeInfo();
 
         var script = map.Script ?? string.Empty;
@@ -91,6 +111,12 @@ internal static partial class MapInspector
                 author = info.MapAuthor,
                 description = info.MapDescription,
                 recommendedPlayers = info.RecommendedPlayers,
+                loadingScreen = new
+                {
+                    title = info.LoadingScreenTitle,
+                    subtitle = info.LoadingScreenSubtitle,
+                    text = info.LoadingScreenText,
+                },
                 rawStrings,
                 width = info.PlayableMapAreaWidth,
                 height = info.PlayableMapAreaHeight,

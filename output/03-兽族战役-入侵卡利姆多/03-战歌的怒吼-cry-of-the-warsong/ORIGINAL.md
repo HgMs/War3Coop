@@ -6,10 +6,15 @@
 - 英文名：Cry of the Warsong
 - 类型：标准关卡
 
-## 关卡概述
+## 本地加载界面原文
 
-格罗姆违背萨尔命令攻击人类营地，战歌氏族在冲突升级前建立并扩张基地。
+五天后，石爪山山麓附近……
 
-## 对照状态
+## 核对依据
 
-当前说明根据公开的经典战役章节清单和剧情概述建立。解压并确认 1.20e 与 1.31 游戏数据后，需进一步核对地图内任务文本、单位配置、过场、物品、难度差异和官方中文名称。
+- 核对版本：Warcraft III 1.24e（build 1.24.4.6387，简体中文本地化）
+- 加载画面标题：第三章 / 战歌部落的呐喊
+- 本地来源：`War3Patch.mpq / Maps\Campaign\Orc03.w3m`
+- 地图 SHA-256：`84ADDFD4D347B2A0A89947F47680CA4D968C8FB1DB3E649515C22CE3A659F239`
+- 地图格式版本：18
+- 解析警告：Could not parse optional war3map.imp: Value '0' is not defined for enum of type ImportedFilesFormatVersion.
