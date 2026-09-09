@@ -53,5 +53,5 @@
 ## 已确认的静态边界
 
 - 原图没有 `GetPlayerController`、`GetPlayerSlotState`、`PLAYER_SLOT_STATE_*` 或 `EVENT_PLAYER_LEAVE` 分支。
-- 原图不能证明把 `Player(8)` 或 `Player(9)` 改成真人/电脑/空槽后仍能保持其槽位生命周期、共享控制、英雄复活、过场和结算；这些属于第 2 阶段待核实项。
+- 原图不能证明把 `Player(8)` 或 `Player(9)` 改成真人/电脑/空槽后仍能保持其槽位生命周期、共享控制、英雄复活、过场和结算；第 2 阶段须定义目标、支持范围和验收办法，第 6 阶段再实机验证。
 - `wc3-inspect` 当前不提供结构化 WTG/JASS AST 查询。本索引对函数名、玩家索引和 rawcode 的引用来自生成 JASS 的只读文本审计；未执行 JASS。
