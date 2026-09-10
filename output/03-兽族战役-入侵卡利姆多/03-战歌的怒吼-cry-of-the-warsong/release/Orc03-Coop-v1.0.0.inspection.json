@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "source": {
+    "path": "D:\\War3Coop\\output\\03-\u517D\u65CF\u6218\u5F79-\u5165\u4FB5\u5361\u5229\u59C6\u591A\\03-\u6218\u6B4C\u7684\u6012\u543C-cry-of-the-warsong\\release\\Orc03-Coop-v1.0.0.w3x",
+    "size": 258199,
+    "sha256": "E2599D670E69F8FA13B25E935D62CECA5ABE0366F7583008E7A65814918D424E"
+  },
+  "map": {
+    "format_version": 18,
+    "map_version": 308,
+    "editor_version": "v4448",
+    "declared_game_version": null,
+    "name": "\u6218\u6B4C\u7684\u6012\u543C - \u53CC\u4EBA\u5408\u4F5C\u5F00\u53D1\u7248",
+    "author": "\u66B4\u96EA\u5A31\u4E50",
+    "description": "\u73A9\u5BB61\u63A7\u5236\u8428\u5C14\u4E0E\u517D\u4EBA\u90E8\u843D\uFF1B\u73A9\u5BB62\u53EF\u63A7\u5236\u683C\u7F57\u59C6\u4E0E\u5B8C\u6574\u6218\u6B4C\u90E8\u843D\uFF0C\u6216\u8BBE\u7F6E\u4E3A\u7535\u8111\u4FDD\u7559\u539F\u7248AI\u3002",
+    "recommended_players": "2",
+    "loading_screen": {
+      "title": "\u7B2C\u4E09\u7AE0",
+      "subtitle": "\u6218\u6B4C\u90E8\u843D\u7684\u5450\u558A",
+      "text": "\u4E94\u5929\u540E\uFF0C\u77F3\u722A\u5C71\u5C71\u9E93\u9644\u8FD1\u2026\u2026"
+    },
+    "raw_strings": {
+      "name": "\u6218\u6B4C\u7684\u6012\u543C - \u53CC\u4EBA\u5408\u4F5C\u5F00\u53D1\u7248",
+      "author": "TRIGSTR_056",
+      "description": "\u73A9\u5BB61\u63A7\u5236\u8428\u5C14\u4E0E\u517D\u4EBA\u90E8\u843D\uFF1B\u73A9\u5BB62\u53EF\u63A7\u5236\u683C\u7F57\u59C6\u4E0E\u5B8C\u6574\u6218\u6B4C\u90E8\u843D\uFF0C\u6216\u8BBE\u7F6E\u4E3A\u7535\u8111\u4FDD\u7559\u539F\u7248AI\u3002",
+      "recommended_players": "2",
+      "loading_screen_text": "TRIGSTR_057",
+      "loading_screen_title": "TRIGSTR_005",
+      "loading_screen_subtitle": "TRIGSTR_006"
+    },
+    "width": 92,
+    "height": 124,
+    "flags": "HideMinimapInPreviewScreens, FixedPlayerSettingsForCustomForces, UseCustomForces, UseCustomTechtree, UseCustomUpgrades, HasMapPropertiesMenuBeenOpened, ShowWaterWavesOnCliffShores",
+    "flags_value": 3809,
+    "tileset": "Barrens",
+    "script_language": "Jass",
+    "players": [
+      {
+        "id": 0,
+        "name": "\u517D\u4EBA\u90E8\u843D",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 1,
+        "name": "\u4EBA\u7C7B\u63A2\u9669\u961F",
+        "controller": "Computer",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 2,
+        "name": "\u6218\u6B4C\u90E8\u843D",
+        "controller": "Computer",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 3,
+        "name": "\u6218\u6B4C\u90E8\u843D",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 8,
+        "name": "\u57FA\u5C14\u5C3C\u65AF\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 9,
+        "name": "\u6D1B\u4E39\u4F26\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 10,
+        "name": "\u5E93\u63D0\u62C9\u65AF\u7CBE\u82F1\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 11,
+        "name": "\u98CE\u66B4\u5B88\u536B\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      }
+    ],
+    "forces": [
+      {
+        "name": "\u517D\u4EBA\u90E8\u843D"
+      },
+      {
+        "name": "\u4EBA\u7C7B\u63A2\u9669\u961F"
+      },
+      {
+        "name": "\u6218\u6B4C\u90E8\u843D"
+      }
+    ]
+  },
+  "content": {
+    "trigger_string_count": 100,
+    "script_bytes": 262145,
+    "script_function_count": 434,
+    "script_udg_global_count": 64,
+    "unit_count": 230,
+    "doodad_count": 3875,
+    "special_doodad_count": 1,
+    "imported_file_count": null
+  },
+  "warnings": [
+    "Could not parse optional war3map.imp: Value \u00270\u0027 is not defined for enum of type ImportedFilesFormatVersion."
+  ]
+}

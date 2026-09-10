@@ -56,6 +56,7 @@
 | `ALLYAI-02` | 战歌移动/会话函数；`Trig_ActivateGromAI_Actions` | AI 启动前地图直接命令格罗姆和战歌单位；启动入口还包含格罗姆死亡复活。 |
 | `ALLYAI-03` | `Trig_TriggerBuildTownQuest_*` 2648-2722；`Trig_GromAggros*` 3015-3218；`Trig_PlayerAggros*` 3227-3399；`Trig_CheckForAllAggro_*` 3403-3430 | `P3` 收到阶段命令 1、4、3、5、2；人族槽索引 `1/8/9/10` 被作为命令数据传入。 |
 | `ALLYAI-06` | `Trig_PlayerBuildsTower_*` 3594-3629；`Trig_PlayerTowerDies_*` 3635-3670；`Trig_Raider_Attack_*` 3700-3727 | `P2` 无战役 AI；两名固定劫掠者每 2 秒攻击 `P0` 在两个指定区域内建造的塔。 |
+| `BETRAYAL-01` | `Trig_Player_Attacks_Grom_*` 2753-2791；`Trig_Player_Attacks_Teal_*` 2794-2814；`Trig_GromAggrosPlayerCheck_*` 2817-2850；`Trig_ActivateGromAI_*` 2853-2873；`Trig_ExitPositionActors_Actions` 3986-3992 | `P0` 击杀 `P2/P3` 单位累计计数，达到 2 后停用两个计数触发，把 `P0↔P2/P3` 双向改为非盟友；格罗姆或指定 `ostr` 死亡直接把计数置 2。若 AI 尚未激活则复活格罗姆并启动 `o03_grom.ai`，随后总是发送命令 4；终场演员定位前恢复双向结盟与视野。 |
 | `QUEST-01` | `Trig_Initial_Quests_Actions` 1374-1391；`Trig_TriggerBuildTownQuest_*` 2648-2722 | 建镇主线仅注册 `P0` 建造 `ogre`；完成后发现飞艇任务并推进战歌 AI。 |
 | `QUEST-02`、`END-03` | `Trig_Building_Check_*` 3788-3853；`Trig_For_Every_Zeppelin_at_Home_Actions` 3859-3861；`Trig_ZeppelinVictory_*` 4415-4433 | 只统计 `P0` 的存活 `nzep`；每艘在 `P0` 存活建筑 768 范围内计 1，至少 2 艘触发任务完成和终场。 |
 | `REWARD-01` | `Trig_All_Harpies_Dead_*` 3755-3782 | 鹰身人全灭后把 `ngad` 替换为无敌 `nC00`，并完成该要求；未直接增加金木。 |
