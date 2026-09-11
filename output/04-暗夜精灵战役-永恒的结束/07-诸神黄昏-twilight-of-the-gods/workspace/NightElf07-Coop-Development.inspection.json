@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "source": {
+    "path": "D:\\War3Coop\\output\\04-\u6697\u591C\u7CBE\u7075\u6218\u5F79-\u6C38\u6052\u7684\u7ED3\u675F\\07-\u8BF8\u795E\u9EC4\u660F-twilight-of-the-gods\\workspace\\NightElf07-Coop-Development.w3x",
+    "size": 309247,
+    "sha256": "E20885A118A3FDA99CCBFF059557F63DF8F27449D46277354E0E52D1E183017C"
+  },
+  "map": {
+    "format_version": 18,
+    "map_version": 898,
+    "editor_version": "v4448",
+    "declared_game_version": null,
+    "name": "\u8BF8\u795E\u9EC4\u660F - 2-3\u4EBA\u5408\u4F5C\u5F00\u53D1\u7248",
+    "author": "\u66B4\u96EA\u5A31\u4E50",
+    "description": "\u6697\u591C\u7CBE\u7075\u3001\u517D\u65CF\u4E0E\u4EBA\u7C7B\u5171\u540C\u5B88\u536B\u6D77\u52A0\u5C14\u5C71\uFF1B\u517D\u65CF\u548C\u4EBA\u7C7B\u53EF\u7531\u771F\u4EBA\u6216\u7535\u8111\u63A7\u5236\u3002",
+    "recommended_players": "2-3",
+    "loading_screen": {
+      "title": "\u7B2C\u4E03\u7AE0",
+      "subtitle": "\u8BF8\u795E\u4E4B\u9EC4\u660F",
+      "text": "\u7B2C\u4E8C\u5929\u9020\u6210\uFF0C\u6D77\u52A0\u5C14\u5C71\u98A0\u9644\u8FD1\r\n\u6697\u591C\u7CBE\u7075\uFF0C\u517D\u4EBA\u548C\u4EBA\u7C7B\u96C6\u7ED3\u5728\u4E00\u8D77\u5E03\u7F6E\u4ED6\u4EEC\u7684\u9632\u5FA1\u2026\u2026"
+    },
+    "raw_strings": {
+      "name": "\u8BF8\u795E\u9EC4\u660F - 2-3\u4EBA\u5408\u4F5C\u5F00\u53D1\u7248",
+      "author": "TRIGSTR_003",
+      "description": "\u6697\u591C\u7CBE\u7075\u3001\u517D\u65CF\u4E0E\u4EBA\u7C7B\u5171\u540C\u5B88\u536B\u6D77\u52A0\u5C14\u5C71\uFF1B\u517D\u65CF\u548C\u4EBA\u7C7B\u53EF\u7531\u771F\u4EBA\u6216\u7535\u8111\u63A7\u5236\u3002",
+      "recommended_players": "2-3",
+      "loading_screen_text": "TRIGSTR_006",
+      "loading_screen_title": "TRIGSTR_004",
+      "loading_screen_subtitle": "TRIGSTR_005"
+    },
+    "width": 84,
+    "height": 148,
+    "flags": "HideMinimapInPreviewScreens, FixedPlayerSettingsForCustomForces, UseCustomForces, UseCustomTechtree, UseCustomUpgrades, HasMapPropertiesMenuBeenOpened, ShowWaterWavesOnCliffShores",
+    "flags_value": 3809,
+    "tileset": "Ashenvale",
+    "script_language": "Jass",
+    "players": [
+      {
+        "id": 0,
+        "name": "\u517D\u4EBA\u90E8\u843D",
+        "controller": "User",
+        "race": "Orc",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 1,
+        "name": "\u54E8\u5175",
+        "controller": "User",
+        "race": "NightElf",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 2,
+        "name": "\u4EA1\u7075\u5929\u7F5A\u8005",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 3,
+        "name": "\u4EA1\u7075\u5929\u7F5A\u8005",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 4,
+        "name": "\u5148\u7956\u4E4B\u9B42",
+        "controller": "Computer",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 6,
+        "name": "\u71C3\u70E7\u519B\u56E2",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 7,
+        "name": "\u5F71\u4E4B\u7259\u90E8\u843D",
+        "controller": "Rescuable",
+        "race": "NightElf",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 8,
+        "name": "\u5DF4\u514B\u65AF\u91D1\u718A\u4EBA",
+        "controller": "Rescuable",
+        "race": "NightElf",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 9,
+        "name": "\u4EBA\u7C7B\u63A2\u9669\u961F",
+        "controller": "User",
+        "race": "Human",
+        "flags": "FixedStartPosition"
+      },
+      {
+        "id": 10,
+        "name": "\u4EA1\u7075\u5929\u7F5A\u8005",
+        "controller": "Computer",
+        "race": "Undead",
+        "flags": "FixedStartPosition"
+      }
+    ],
+    "forces": [
+      {
+        "name": "\u5927\u8054\u76DF"
+      },
+      {
+        "name": "\u71C3\u70E7\u519B\u56E2"
+      },
+      {
+        "name": "\u5DF4\u514B\u65AF\u91D1\u718A\u4EBA"
+      }
+    ]
+  },
+  "content": {
+    "trigger_string_count": 121,
+    "script_bytes": 461120,
+    "script_function_count": 624,
+    "script_udg_global_count": 149,
+    "unit_count": 173,
+    "doodad_count": 4078,
+    "special_doodad_count": 0,
+    "imported_file_count": null
+  },
+  "warnings": [
+    "Could not parse optional war3map.imp: Value \u00270\u0027 is not defined for enum of type ImportedFilesFormatVersion."
+  ]
+}
