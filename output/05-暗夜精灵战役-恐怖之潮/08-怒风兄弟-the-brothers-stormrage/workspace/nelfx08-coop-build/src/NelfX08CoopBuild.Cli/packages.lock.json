@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0": {
+      "War3Net.Build.Core": {
+        "type": "Direct",
+        "requested": "[6.0.3, )",
+        "resolved": "6.0.3",
+        "contentHash": "s5Om1PzBcIjWWybiNvHyOWs8t1FHG2NSksaDbhf4RqXkV6cw/SCHjLDSGyFjPOEE86O4a1kxFI+zJh8Mr5gZbA==",
+        "dependencies": {
+          "War3Net.CodeAnalysis.Jass": "6.0.2",
+          "War3Net.IO.Mpq": "6.0.3",
+          "War3Net.IO.Slk": "6.0.2"
+        }
+      },
+      "War3Net.CodeAnalysis.Jass": {
+        "type": "Direct",
+        "requested": "[6.0.2, )",
+        "resolved": "6.0.2",
+        "contentHash": "CJQYvyvB3STcgCpTjGsfYkOt6fdkBm4uK3wO/EFWAM5joQhiz8O1/idJz/OoQhFBV5XrtVqo4QZ3XAMQQG2wNw==",
+        "dependencies": {
+          "War3Net.CodeAnalysis": "6.0.2",
+          "War3Net.Common": "6.0.2"
+        }
+      },
+      "War3Net.IO.Mpq": {
+        "type": "Direct",
+        "requested": "[6.0.3, )",
+        "resolved": "6.0.3",
+        "contentHash": "352wwf9k7Dtf6hJVfXhmDbFoWx9r5E3XC0JtiKbAve1fKdIoj934KyZA4ImgSdGkU71MBpoNYf3RNbDdXzmglg==",
+        "dependencies": {
+          "War3Net.IO.Compression": "6.0.2"
+        }
+      },
+      "Microsoft.Win32.SystemEvents": {
+        "type": "Transitive",
+        "resolved": "6.0.0",
+        "contentHash": "hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A=="
+      },
+      "Pidgin": {
+        "type": "Transitive",
+        "resolved": "3.1.0",
+        "contentHash": "bJXIaV7E18oXLVmg3SdxB3UzTNt6RElLaA3eDPMaH/MTGUTa6NqGbySDm5NEmsudOi/zVxldExke3omoHQu31g==",
+        "dependencies": {
+          "System.Collections.Immutable": "5.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        }
+      },
+      "SharpZipLib": {
+        "type": "Transitive",
+        "resolved": "1.4.2",
+        "contentHash": "yjj+3zgz8zgXpiiC3ZdF/iyTBbz2fFvMxZFEBPUcwZjIvXOf37Ylm+K58hqMfIBt5JgU/Z2uoUS67JmTLe973A=="
+      },
+      "System.Collections.Immutable": {
+        "type": "Transitive",
+        "resolved": "5.0.0",
+        "contentHash": "FXkLXiK0sVVewcso0imKQoOxjoPAj42R8HtjjbSjVPAzwDfzoyoznWxgA3c38LDbN9SJux1xXoXYAhz98j7r2g=="
+      },
+      "System.Drawing.Common": {
+        "type": "Transitive",
+        "resolved": "6.0.0",
+        "contentHash": "NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "6.0.0"
+        }
+      },
+      "System.IO.Hashing": {
+        "type": "Transitive",
+        "resolved": "8.0.0",
+        "contentHash": "ne1843evDugl0md7Fjzy6QjJrzsjh46ZKbhf8GwBXb5f/gw97J4bxMs0NQKifDuThh/f0bZ0e62NPl1jzTuRqA=="
+      },
+      "System.Runtime.CompilerServices.Unsafe": {
+        "type": "Transitive",
+        "resolved": "5.0.0",
+        "contentHash": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA=="
+      },
+      "War3Net.CodeAnalysis": {
+        "type": "Transitive",
+        "resolved": "6.0.2",
+        "contentHash": "d8qieXx8J/pIr/B1lqTBuh5WqVsulJZ3n8Fzy1UWWGXPq0Ajbw2TjPM/shWCArElrawYrZYaUxy99Bj+ITtDig==",
+        "dependencies": {
+          "Pidgin": "3.1.0"
+        }
+      },
+      "War3Net.Common": {
+        "type": "Transitive",
+        "resolved": "6.0.2",
+        "contentHash": "yvkqqAIArv7imGrNCzLwAUZ4LeGax9LiB7fqbxTz6ZoGZWklQ7sdPKLYZj6pmV0Voo+OJLKg9XLiAPcZ4d6CDw==",
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0"
+        }
+      },
+      "War3Net.IO.Compression": {
+        "type": "Transitive",
+        "resolved": "6.0.2",
+        "contentHash": "9MBhfG27lXLOq1iZRdP0fte43Ta98HmrNDV0NXXOPRjJ6Yh82wio4Hp7fLBMx/+Luh9AIWkp0bUl7unHMjg78A==",
+        "dependencies": {
+          "SharpZipLib": "1.4.2",
+          "System.IO.Hashing": "8.0.0",
+          "War3Net.Common": "6.0.2"
+        }
+      },
+      "War3Net.IO.Slk": {
+        "type": "Transitive",
+        "resolved": "6.0.2",
+        "contentHash": "OJIqDZMdKqHdudghmrFLih5zrIHx3h6fCnWKSA/UpJRkBjaTKFsdFuM0rD1msbTzMGJchaZXY2x0QlOgJcWzfQ==",
+        "dependencies": {
+          "War3Net.Common": "6.0.2"
+        }
+      }
+    }
+  }
+}

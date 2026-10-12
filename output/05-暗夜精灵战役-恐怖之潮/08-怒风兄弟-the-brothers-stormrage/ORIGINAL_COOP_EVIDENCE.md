@@ -11,6 +11,7 @@
 - 地图：282331 字节，SHA-256 `AC942B38F7E7F4C1EDA45DE0512667FAE91E5CD36D902FCBE1C1BBFB96B363E0`
 - 格式 25；地图版本 739；编辑器 v6031；JASS；116×84；推荐玩家 1
 - 静态规模：107 条触发字符串、352401 字节脚本、480 个函数、67 个 `udg_` 全局量、292 个放置单位、3843 个装饰物
+- `war3map.w3u`：2769 字节，SHA-256 `9EBBA8195A2B076B32A984F296B8F0C751AA3131C881926C23965653C5C4E9C7`
 - 检查器警告：无
 - 检查日期：2026-09-09；未执行 JASS，未启动游戏或 World Editor
 
@@ -25,21 +26,24 @@
 
 | 机制 | 脚本/对象锚点 | 观察结果 |
 | --- | --- | --- |
-| `SLOT-01` 至 `SLOT-04` | W3I；`InitGlobals` 419-450；`InitCustomPlayerSlots/Teams`；`Trig_Init_01_Players_Actions` 2298-2426 | `P1` User Naga，`P2` Computer Sentinel，`P3` Neutral Furion；运行期联盟与共享控制不完全等同于 W3I force。 |
+| `SLOT-01` 至 `SLOT-05` | W3I；`InitGlobals` 419-450；`InitCustomPlayerSlots/Teams` 6480-6603；`Trig_Init_01_Players_Actions` 2298-2447 | JASS `P1` User Naga，`P2` Computer Sentinel，`P3` Neutral Furion。W3I 将三者置于同队并打开共同胜利、共享视野/控制；运行时又将 `P1/P3` 设为双向 `bj_ALLIANCE_ALLIED_ADVUNITS`，而 P2 关系并不完全对称。 |
 | `SLOT-05`、`ALLYAI-03`、`EXTRA-03` | 全脚本负向扫描 | `GetPlayerController`、`GetPlayerSlotState`、`EVENT_PLAYER_LEAVE` 均未出现。 |
-| `ASSET-01` | `CreateBuildingsForPlayer1` 1000；`CreateUnitsForPlayer1` 1020；尤迪安恢复 2860-2870 | `P1` 10 建筑、17 非英雄单位；尤迪安缓存或 10 级兜底；500/500。 |
-| `ASSET-02` | `CreateBuildingsForPlayer3` 1076；`CreateUnitsForPlayer3` 1100；玛尔法里奥恢复 2816-2832 | `P3` 13 建筑、15 非英雄单位及玛尔法里奥；500/500。 |
-| `ASSET-03` | `CreateBuildingsForPlayer2` 1047；`CreateUnitsForPlayer2` 1062；泰兰德恢复 2778-2788 | `P2` 5 建筑、4 非英雄单位及泰兰德；5000/5000。 |
-| `ALLYAI-01`、`ALLYAI-02` | AI 启动 5361-5367 | `P2` 与敌方槽启动 `StartMeleeAI`；没有 `P3` AI。 |
-| `QUEST-01` | 任务创建 5056；完成 5078-5105 | 主任务包含泰兰德、亡灵与玛尔法里奥基地条件。 |
-| `QUEST-02` | 水坝任务 5129-5178；水坝过场与跳过 | 可选水坝任务有独立发现、世界状态改变与完成入口。 |
+| `ASSET-01`、`HERO-01` | `CreateBuildingsForPlayer1` 1000；`CreateUnitsForPlayer1` 1020；`Trig_Load_Illidan_Actions` 2858-2881；初始化 2487 | `P1` 10 建筑、17 非英雄单位；尤迪安 `Eevi` 缓存或 10 级兜底，技能 `AEmb/AEim/AEev` 各 3 级、`AEvi` 1 级，并取得 `IllidansOrb` 区域的预置 `gldo`；500/500。 |
+| `ASSET-02`、`HERO-02` | `CreateBuildingsForPlayer3` 1076；`CreateUnitsForPlayer3` 1100；`Trig_Load_Furion_Actions` 2814-2843 | `P3` 13 建筑、15 非英雄单位；玛尔法里奥 `Emfr` 缓存或 10 级兜底，缓存路径先移除 6 个 `stwp`；500/500。 |
+| `ASSET-03`、`HERO-03` | `CreateBuildingsForPlayer2` 1047；`CreateUnitsForPlayer2` 1062；`Trig_Load_Tyrande_Actions` 2776-2799 | `P2` 5 建筑、4 非英雄单位；泰兰德 `Etyr` 缓存或 10 级兜底；5000/5000。 |
+| `HERO-04` | `Trig_Load_Magroth_Actions` 2899-2912；`Trig_Load_Maiev_Actions` 2924-2937 | 两名角色只用于从 `FinalX` 恢复并把 6 格物品放到固定点，随后立即移除；马格罗斯入口另受 `MagrothSaved` 控制。 |
+| `HERO-05` | 放置英雄 1155-1420；难度 2614-2647；终场复活 4898-4909 | 预置敌方英雄为 `Udea/Udre/Ulic` 各 2 个；尤迪安和玛尔法里奥可能在终场被剧情帮助器复活。 |
+| `HERO-FOOD-01` | `War3Patch.mpq::Units\\UnitBalance.slk`（SHA-256 `1DC1A308826E85C03D963EA3BE750E771153BB31BC058F9D45B8F3E6F0680F27`）；地图 `war3map.w3u` | `Eevi/Emfr/Etyr/Ewrd/Hmgd` 的 `fused` 为空（有效 0）；`Udea/Udre/Ulic fused=5`；地图没有上述八种类型的 `ufoo` 覆盖。 |
+| `ALLYAI-01`、`ALLYAI-02` | AI 启动 5361-5367；`N08X03.ai`；P2 资源事件 5379-5401 | `P2` 与敌方槽启动 `StartMeleeAI`；P2 AI 维持固定防守建筑/单位并允许修理。P2 金/木低于 1000 时分别设为 2109/3243；没有 `P3` AI 或补贴。 |
+| `QUEST-01` | 任务创建 5053-5062；发现/完成 5074-5108；胜利条件 6029-6056 | 主任务有“消灭亡灵”和“玛尔法里奥基地存活”两项要求；`P4` 活建筑归零触发唯一胜利门禁。 |
+| `QUEST-02` | 水坝任务 5126-5213；发现入口 5575-5649；完成 5655-5666 | 区域入口已接受 P1 或 P3 单位，但周期可见性入口只检查 P1；巨魔组全部死亡后只推进一次水坝过场与任务完成。 |
 | `CINE-01`、`CINE-02` | 开场 3143-3693；水坝 3790-4241；胜利 4423-4987；跳过注册 3446/3896/4737 | 镜头和跳过均集中 `P1`，正常与跳过都会操作剧情资产。 |
-| `END-01` 至 `END-03` | 胜利 4966-4987；失败 5000-5032、6045-6154 | 单一门禁；胜负只结算 `P1`；另有建筑/单位全灭及泰兰德死亡路径。 |
-| `DIFF-01` | 难度初始化 2608-2711 | 三档难度修改敌方 handicap 与英雄/单位配置，无合作人数缩放。 |
+| `END-01` 至 `END-03` | 胜利 6041-6056、4962-4987；失败 6079-6154；电影复活 2954-3014 | P4 活建筑归零后胜利；P1 或 P3 任一建筑归零、或泰兰德死亡后失败；胜负只显式结算 P1。终场帮助器会复活尤迪安/玛尔法里奥并寻找所属阵营祭坛。 |
+| `DIFF-01` | 难度初始化 2607-2723 | 困难提高六个亡灵英雄等级/技能；普通给玛尔法里奥的金矿增加 3000 金；简单另降低敌方与中立敌对 handicap。无合作人数缩放。 |
 | `META-01`、`META-02` | 英雄恢复 2778-2935；保存/解锁/下一图 4966-4987 | 依赖 `Campaigns.w3v`，胜利保存英雄并进入 `NightElfX08Finale.w3x`。 |
 
 ## 静态边界
 
 - 官方原图中 `P3` 是完整友军但没有独立 AI；`P2` 有 AI 但不是完整常规基地。
-- 基础 `UnitBalance.slk` 对所列剧情英雄的直接 `fused` 单元为空；地图自定义对象继承后的最终有效人口须在选定路线后结构化复算，本文不把空单元等同于已证明的 0。
-- 真人、电脑、空槽和未加入的大厅生命周期，以及空槽 AI 可运行性，静态 JASS 无法证明。
+- 可达英雄已按脚本创建、缓存恢复、预置实例和终场复活路径枚举。`Eevi/Emfr/Etyr/Ewrd/Hmgd` 有效人口为 0，`Udea/Udre/Ulic` 为 5；地图对象数据没有覆盖这些类型的 `ufoo`。
+- 真人、电脑、空槽和未加入的大厅生命周期，以及 P3 非真人时恢复 Neutral 共享控制的实际可用性，静态 JASS 无法证明。
